@@ -5,7 +5,6 @@
 # Creates entry /data/ynames_lookup containing basic information
 # about the set of installed charts
 
-library(chaco)
 library(tidyr)
 library(chartbox)
 
@@ -270,7 +269,6 @@ ynames_lookup$seq[ynames_lookup$chartcode == "NMEW" &
                     ynames_lookup$yname == "wgt"] <- "rt"
 ynames_lookup$seq[ynames_lookup$chartcode == "NJEW" &
                     ynames_lookup$yname == "wgt"] <- "rt"
-
 
 # save
 usethis::use_data(ynames_lookup, overwrite = TRUE)
