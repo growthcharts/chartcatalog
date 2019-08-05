@@ -1,12 +1,12 @@
 Package: chartcatalog
 Type: Package
-Title: Information Functions for the Collection of Growth Charts in Package chartbox
-Version: 0.1.0
+Title: Catalog of JAMES Growth Charts
+Version: 0.2.0
 Authors@R: person("Stef", "van Buuren", email = "stef.vanbuuren@tno.nl", role = c("aut", "cre"))
 Maintainer: Stef van Buuren <stef.vanbuuren@tno.nl>
 Description: This packages contains tools for naming growth charts, and 
     finding out relevant information for each chart.
-License: file LICENSE
+License: AGPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 2.10)
