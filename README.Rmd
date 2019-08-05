@@ -1,0 +1,97 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# chartcatalog
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The `chartcatalog` package contains tools to
+
+- Lookup available charts in JAMES;
+- Create and parse chart codes;
+- Find outcomes, chart group and growth reference;
+- Obtain viewport number and transformation functions;
+- Lookup breakpoints from the brokenstick model.
+
+## Installation
+
+You can install the development version `chartcatalog` by
+
+```{r eval = FALSE}
+install.packages("remotes")
+remotes::install_github("stefvanbuuren/chartcatalog")
+```
+
+There is no release on CRAN.
+
+## Example 1: Available charts in JAMES
+
+The current version holds 306 Dutch charts.
+
+```{r example}
+library(chartcatalog)
+head(ynames_lookup)
+length(unique(ynames_lookup$chartcode))
+```
+
+The charts are subdivided into three groups: 
+
+```{r chartgrp}
+unique(ynames_lookup$chartgrp)
+```
+
+There are five outcomes, but not every outcome (`yname`) appears in all chart groups:
+
+```{r charttable}
+with(ynames_lookup, table(chartgrp, yname))
+```
+
+## Example 2: Chartcode creating and parsing
+
+A `chartcode` identifies the type of growth chart. The code
+is a combination of 4--7 alphanumeric characters. The `create_chartcode()` 
+and `parse_chartcode()` functions can be used to obtain information 
+from the codes. For example, 
+
+```{r parse}
+parse_chartcode(c("HJAA"))
+```
+
+shows that chart with code `"HJAA"` identifies the front of the chart for 
+Hindostani boys living in the Netherlands, design A (A4 size, 0-15 months).
+
+## Example 3: Find outcomes, chart group and growth reference
+
+If we have a chart code, we may find its chart group and outcomes as
+
+```{r getchartgrp}
+get_chartgrp("PJEAN26")
+get_ynames("PJEAN26")
+```
+
+We obtain the post-natal growth reference of weight of preterms born at 
+a gestational age of 26 week by
+
+```{r getref}
+tb <- get_reference("PJEAN26", yname = "wgt")
+tb
+```
+
+More details can be found in the `info` slot:
+
+```{r tbinfo}
+slot(tb, "info")
+```
+
