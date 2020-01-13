@@ -9,7 +9,7 @@ create_chartcode(
   etn = c("nl", "tu", "ma", "hs"),
   sex = c("male", "female"),
   agegrp = c("0-15m", "0-4y", "1-21y", "0-21y", "0-4ya"),
-  side = c("front", "back", "-hdc", "both", "hgt", "wgt", "hdc", "bmi", "wfh"),
+  side = c("front", "back", "-hdc", "both", "hgt", "wgt", "hdc", "bmi", "wfh", "dsc"),
   week = 32,
   language = c("dutch", "english"),
   version = ""
@@ -27,7 +27,9 @@ create_chartcode(
 or \code{'0-4ya'}. Age group \code{'0-4ya'} provides the 0-4 chart with weight
 for age (design E).}
 
-\item{side}{Either \code{'front'}, \code{'back'}, \code{'-hdc'} or \code{'both'}}
+\item{side}{Either \code{'front'}, \code{'back'}, \code{'-hdc'}, \code{'both'},
+\code{'hgt'}, \code{'wgt'}, \code{'hdc'}, \code{'bmi'}, \code{'wfh'} or
+\code{'dsc'}.}
 
 \item{week}{A number between 25 and 36 gestational age. Only used for preterm charts.}
 

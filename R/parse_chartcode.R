@@ -13,7 +13,7 @@
 #'    0-4ya.}
 #'    \item{\code{side}}{A string indicating the side or \code{yname}:
 #'    \code{'front'}, \code{'back'}, \code{'both'}, \code{'hgt'},
-#'    \code{'wgt'}, \code{'hdc'}, \code{'bmi'}, \code{'wfh'}}
+#'    \code{'wgt'}, \code{'hdc'}, \code{'bmi'}, \code{'wfh'}, \code{'dsc'}}
 #'    \item{\code{language}}{The language in which the chart is drawn. Currently only
 #'    \code{"dutch"} charts are implemented, but for \code{population == "PT"} we
 #'    may also have \code{"english"}.}
@@ -60,6 +60,7 @@ parse_chartcode <- function(chartcode = NULL) {
                  'O' = "hdc",
                  'Q' = "bmi",
                  'R' = "wfh",
+                 'D' = "dsc",
                  NULL)
 
   # 5: language

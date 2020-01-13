@@ -8,7 +8,9 @@
 #'@param agegrp Either \code{'0-15m'}, \code{'0-4y'}, \code{'1-21y'}, \code{'0-21y'}
 #' or \code{'0-4ya'}. Age group \code{'0-4ya'} provides the 0-4 chart with weight
 #' for age (design E).
-#'@param side Either \code{'front'}, \code{'back'}, \code{'-hdc'} or \code{'both'}
+#'@param side Either \code{'front'}, \code{'back'}, \code{'-hdc'}, \code{'both'},
+#' \code{'hgt'}, \code{'wgt'}, \code{'hdc'}, \code{'bmi'}, \code{'wfh'} or
+#' \code{'dsc'}.
 #'@param week A number between 25 and 36 gestational age. Only used for preterm charts.
 #'@param language Language: \code{'dutch'} or \code{'english'}
 #'@param version Version number. Default is to have no version number.
@@ -18,7 +20,7 @@ create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who'),
                           sex = c('male', 'female'),
                           agegrp = c('0-15m', '0-4y', '1-21y', '0-21y', '0-4ya'),
                           side = c('front', 'back', '-hdc', 'both', 'hgt',
-                                   'wgt', 'hdc', 'bmi', 'wfh'),
+                                   'wgt', 'hdc', 'bmi', 'wfh', 'dsc'),
                           week = 32,
                           language = c('dutch','english'),
                           version = '')
@@ -80,7 +82,8 @@ create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who'),
                'wgt'   = 'W',
                'hdc'   = 'O',
                'bmi'   = 'Q',
-               'wfh'   = 'R')
+               'wfh'   = 'R',
+               'dsc'   = 'D')
 
   ## we have no backside charts for preterms, so use
   ## Dutch charts instead
