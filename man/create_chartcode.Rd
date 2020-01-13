@@ -4,11 +4,16 @@
 \alias{create_chartcode}
 \title{Construct a single chart code from user input}
 \usage{
-create_chartcode(chartgrp = c("nl2010", "preterm", "who"),
-  etn = c("nl", "tu", "ma", "hs"), sex = c("male", "female"),
+create_chartcode(
+  chartgrp = c("nl2010", "preterm", "who"),
+  etn = c("nl", "tu", "ma", "hs"),
+  sex = c("male", "female"),
   agegrp = c("0-15m", "0-4y", "1-21y", "0-21y", "0-4ya"),
-  side = c("front", "back", "-hdc", "both", "hgt", "wgt", "hdc", "bmi",
-  "wfh"), week = 32, language = c("dutch", "english"), version = "")
+  side = c("front", "back", "-hdc", "both", "hgt", "wgt", "hdc", "bmi", "wfh"),
+  week = 32,
+  language = c("dutch", "english"),
+  version = ""
+)
 }
 \arguments{
 \item{chartgrp}{The chart group: \code{'nl2010'}, \code{'preterm'} or \code{'who'}}

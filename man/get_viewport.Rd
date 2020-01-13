@@ -4,8 +4,12 @@
 \alias{get_viewport}
 \title{Obtain the viewport name of the chart}
 \usage{
-get_viewport(chartcode, yname, chartgrp = get_chartgrp(chartcode),
-  number = TRUE)
+get_viewport(
+  chartcode,
+  yname,
+  chartgrp = get_chartgrp(chartcode),
+  number = TRUE
+)
 }
 \arguments{
 \item{chartcode}{The chart code, returned by \code{create_chartcode()}}
