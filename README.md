@@ -237,5 +237,5 @@ slot(tb, "info")
 #> [1] "Bemerkung =\t\t\t\t\t\t\t\t\t\t\t\t\t"
 #> 
 #> Slot "date":
-#> [1] "2017-08-28 08:06:19 CEST"
+#> [1] "2020-01-13 18:13:59 CET"
 ```
