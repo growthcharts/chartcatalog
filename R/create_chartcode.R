@@ -28,11 +28,12 @@ create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who'),
   chartgrp <- match.arg(chartgrp)
   etn <- match.arg(etn)
   sex <- match.arg(sex)
+  agegrp <- match.arg(agegrp)
   side <- match.arg(side)
   language <- match.arg(language)
 
   # use design E if wgt is asked for 0-ya
-  if (agegrp == "0-4y" & side == "wgt") agegrp = "0-4ya"
+  if (agegrp == "0-4y" & side == "wgt") agegrp <- "0-4ya"
 
   ## c1 chart group/etnicity: N, T, M, P, H
   c1 <- switch(chartgrp,
@@ -45,7 +46,6 @@ create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who'),
   c2 <- ifelse(sex == 'male', 'J', 'M')
 
   ## c3 agegrp1: A, B, C, D, E
-  agegrp <- match.arg(agegrp)
   c3 <- switch(agegrp,
                '0-15m' = 'A',
                '0-4y'  = 'B',
