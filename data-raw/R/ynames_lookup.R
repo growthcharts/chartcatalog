@@ -17,48 +17,50 @@ chart_table <- chartbox::list_charts()
 # derive lookup table for viewport and reference
 get_viewport_vector_name <- function(chartcode) {
   p <- chartcatalog::parse_chartcode(chartcode)
-  if (p$design == "A" & p$side == "front") return(c("A", "B", "C", NA, NA))
-  if (p$design == "A" & p$side == "back")  return(rep(NA, 5))
-  if (p$design == "B" & p$side == "front") return(c(NA, "B", NA, NA, "A"))
-  if (p$design == "B" & p$side == "back")  return(c("A", NA, NA, NA, NA))
-  if (p$design == "B" & p$side == "-hdc")  return(rep(NA, 5))
-  if (p$design == "C" & p$side == "front") return(c(NA, "B", NA, NA, "A"))
-  if (p$design == "C" & p$side == "back")  return(c("B", NA, NA, "A", NA))
-  if (p$design == "C" & p$side == "-hdc")  return(c(NA, NA, NA, "A", NA))
-  if (p$design == "E" & p$side == "front") return(c(NA, "B", "A", NA, NA))
-  if (p$design == "E" & p$side == "back")  return(c("A", NA, NA, NA, NA))
-  if (p$side == "hgt") return(c(NA, "A", NA, NA, NA))
-  if (p$side == "wgt") return(c(NA, NA, "A", NA, NA))
-  if (p$side == "hdc") return(c("A", NA, NA, NA, NA))
-  if (p$side == "bmi") return(c(NA, NA, NA, "A", NA))
-  if (p$side == "wfh") return(c(NA, NA, NA, NA, "A"))
-  return(rep(NA, 5))
+  if (p$design == "A" & p$side == "front") return(c("A", "B", "C", NA, NA, NA))
+  if (p$design == "A" & p$side == "back")  return(rep(NA, 6))
+  if (p$design == "B" & p$side == "front") return(c(NA, "B", NA, NA, "A", NA))
+  if (p$design == "B" & p$side == "back")  return(c("A", NA, NA, NA, NA, NA))
+  if (p$design == "B" & p$side == "-hdc")  return(rep(NA, 6))
+  if (p$design == "C" & p$side == "front") return(c(NA, "B", NA, NA, "A", NA))
+  if (p$design == "C" & p$side == "back")  return(c("B", NA, NA, "A", NA, NA))
+  if (p$design == "C" & p$side == "-hdc")  return(c(NA, NA, NA, "A", NA, NA))
+  if (p$design == "E" & p$side == "front") return(c(NA, "B", "A", NA, NA, NA))
+  if (p$design == "E" & p$side == "back")  return(c("A", NA, NA, NA, NA, NA))
+  if (p$side == "hgt") return(c(NA, "A", NA, NA, NA, NA))
+  if (p$side == "wgt") return(c(NA, NA, "A", NA, NA, NA))
+  if (p$side == "hdc") return(c("A", NA, NA, NA, NA, NA))
+  if (p$side == "bmi") return(c(NA, NA, NA, "A", NA, NA))
+  if (p$side == "wfh") return(c(NA, NA, NA, NA, "A", NA))
+  if (p$side == "dsc") return(c(NA, NA, NA, NA, NA, "A"))
+  return(rep(NA, 6))
 }
 
 # derive lookup table for viewport and reference
 get_viewport_vector_number <- function(chartcode) {
   p <- chartcatalog::parse_chartcode(chartcode)
-  if (p$design == "A" & p$side == "front") return(c(3, 4, 5, NA, NA))
-  if (p$design == "A" & p$side == "back")  return(rep(NA, 5))
-  if (p$design == "B" & p$side == "front") return(c(NA, 4, NA, NA, 3))
-  if (p$design == "B" & p$side == "back")  return(c(1, NA, NA, NA, NA))
-  if (p$design == "B" & p$side == "-hdc")  return(rep(NA, 5))
-  if (p$design == "C" & p$side == "front") return(c(NA, 4, NA, NA, 3))
-  if (p$design == "C" & p$side == "back")  return(c(3, NA, NA, 2, NA))
-  if (p$design == "C" & p$side == "-hdc")  return(c(NA, NA, NA, 2, NA))
-  if (p$design == "E" & p$side == "front") return(c(NA, 4, 3, NA, NA))
-  if (p$design == "E" & p$side == "back")  return(c(1, NA, NA, NA, NA))
-  if (p$side == "hgt") return(c(NA, 1, NA, NA, NA))
-  if (p$side == "wgt") return(c(NA, NA, 1, NA, NA))
-  if (p$side == "hdc") return(c(1, NA, NA, NA, NA))
-  if (p$side == "bmi") return(c(NA, NA, NA, 1, NA))
-  if (p$side == "wfh") return(c(NA, NA, NA, NA, 1))
-  return(rep(NA, 5))
+  if (p$design == "A" & p$side == "front") return(c(3, 4, 5, NA, NA, NA))
+  if (p$design == "A" & p$side == "back")  return(rep(NA, 6))
+  if (p$design == "B" & p$side == "front") return(c(NA, 4, NA, NA, 3, NA))
+  if (p$design == "B" & p$side == "back")  return(c(1, NA, NA, NA, NA, NA))
+  if (p$design == "B" & p$side == "-hdc")  return(rep(NA, 6))
+  if (p$design == "C" & p$side == "front") return(c(NA, 4, NA, NA, 3, NA))
+  if (p$design == "C" & p$side == "back")  return(c(3, NA, NA, 2, NA, NA))
+  if (p$design == "C" & p$side == "-hdc")  return(c(NA, NA, NA, 2, NA, NA))
+  if (p$design == "E" & p$side == "front") return(c(NA, 4, 3, NA, NA, NA))
+  if (p$design == "E" & p$side == "back")  return(c(1, NA, NA, NA, NA, NA))
+  if (p$side == "hgt") return(c(NA, 1, NA, NA, NA, NA))
+  if (p$side == "wgt") return(c(NA, NA, 1, NA, NA, NA))
+  if (p$side == "hdc") return(c(1, NA, NA, NA, NA, NA))
+  if (p$side == "bmi") return(c(NA, NA, NA, 1, NA, NA))
+  if (p$side == "wfh") return(c(NA, NA, NA, NA, 1, NA))
+  if (p$side == "dsc") return(c(NA, NA, NA, NA, NA, 1))
+  return(rep(NA, 6))
 }
 
 
 # lookup for vp
-ynames <- c("hdc", "hgt", "wgt", "bmi", "wfh")
+ynames <- c("hdc", "hgt", "wgt", "bmi", "wfh", "dsc")
 ynames_lookup <- data.frame(
   chartgrp = chart_table$chartgrp,
   chartcode = chart_table$chartcode,
@@ -67,6 +69,7 @@ ynames_lookup <- data.frame(
   wgt = NA,
   bmi = NA,
   wfh = NA,
+  dsc = NA,
   stringsAsFactors = FALSE)
 for (i in seq_along(chart_table$chartcode)) {
   chart <- chart_table$chartcode[i]
@@ -79,7 +82,7 @@ ynames_lookup <- ynames_lookup %>%
 vp <- ynames_lookup$vp
 
 # lookup for vpn
-ynames <- c("hdc", "hgt", "wgt", "bmi", "wfh")
+ynames <- c("hdc", "hgt", "wgt", "bmi", "wfh", "dsc")
 ynames_lookup <- data.frame(
   chartgrp = chart_table$chartgrp,
   chartcode = chart_table$chartcode,
@@ -115,6 +118,7 @@ get_reference_calltext <- function(chartgrp, chartcode, yname) {
       return(paste0('clopus::', 'nl1980', '[["', 'nl1980.mbmi', '"]]'))
     if (p$population != "HS" && p$sex == "male" && yname == "wfh")
       return(paste0('clopus::', 'nl1980', '[["', 'nl1980.mwfhNLA', '"]]'))
+
     if (p$population == "NL" && p$sex == "female" && yname == "hdc")
       return(paste0('clopus::', 'nl1997', '[["', 'nl1997.fhdcNL', '"]]'))
     if (p$population == "NL" && p$sex == "female" && yname == "hgt")
@@ -125,6 +129,9 @@ get_reference_calltext <- function(chartgrp, chartcode, yname) {
       return(paste0('clopus::', 'nl1980', '[["', 'nl1980.fbmi', '"]]'))
     if (p$population != "HS" && p$sex == "female" && yname == "wfh")
       return(paste0('clopus::', 'nl1980', '[["', 'nl1980.fwfhNLA', '"]]'))
+
+    if (p$population == "NL" && yname == "dsc")
+      return(paste0('clopus::', 'dscore', '[["', 'nl2014.mdsc40', '"]]'))
 
     if (p$population == "TU" && p$sex == "male" && yname == "hdc")
       return(paste0('clopus::', 'nl1997', '[["', 'nl1997.mhdcTU', '"]]'))
@@ -181,6 +188,8 @@ get_reference_calltext <- function(chartgrp, chartcode, yname) {
       return(paste0('clopus::', 'preterm', '[["', 'pt2012a.fhgt', p$week, '"]]'))
     if (p$sex == "female" && yname == "wgt")
       return(paste0('clopus::', 'preterm', '[["', 'pt2012a.fwgt', p$week, '"]]'))
+    if (yname == "dsc")
+      return(paste0('clopus::', 'dscore', '[["', 'nl2014.mdsc', p$week, '"]]'))
     return(NA_character_)
   }
 
