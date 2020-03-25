@@ -21,5 +21,5 @@ An function with one argument \code{x}
 Obtain the tx() transformation function
 }
 \examples{
-get_tx("nl2010", "NJAA", "hgt")
+get_tx("NJAA", "hgt", "nl2010")
 }
