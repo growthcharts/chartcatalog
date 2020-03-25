@@ -6,7 +6,7 @@
 #' automatically.
 #' @return An function with one argument \code{x}
 #' @examples
-#' get_tx("nl2010", "NJAA", "hgt")
+#' get_tx("NJAA", "hgt", "nl2010")
 #' @export
 get_tx <- function(chartcode,
                    yname,
