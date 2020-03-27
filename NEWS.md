@@ -1,3 +1,7 @@
+# chartcatalog 1.4.0
+
+* Reduced number of breakpoints for the terneuzen data
+
 # chartcatalog 1.3.0
 
 * Added D-score to `yname_lookup` table
