@@ -31,13 +31,11 @@ get_breakpoints <- function(dnr = "smocc") {
     stringsAsFactors = FALSE
   )
   breakpoints0_29 <- data.frame(
-    visit = 1:17,
-    age = round(c(0, 28/365.25, 56/365.25, 1/4, 1/3, 1/2,
-                  7.5/12, 9/12, 11/12, 14/12, 18/12, 2,
-                  4, 6, 10, 18, 29), 4),
-    label = c("0w", "4w", "8w", "3m", "4m", "6m", "7.5m", "9m",
-              "11m", "14m", "18m", "24m", "48m",
-              "6y", "10y", "18y", "29y"),
+    visit = 1:9,
+    age = round(c(0, 1/4, 1/2, 14/12, 2,
+                  4, 10, 18, 29), 4),
+    label = c("0w", "3m", "6m", "14m", "24m",
+              "4y", "10y", "18y", "29y"),
     stringsAsFactors = FALSE
   )
 
