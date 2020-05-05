@@ -4,7 +4,8 @@
 \name{ynames_lookup}
 \alias{ynames_lookup}
 \title{Details of installed charts}
-\format{A data frame with variables:
+\format{
+A data frame with variables:
 \describe{
 \item{chartgrp}{Chart group}
 \item{chartcode}{Chart code as defined by \code{create_chartcode()}. This
@@ -23,7 +24,8 @@ references from \code{clopus}}
 \item{seq}{Transformation sequence: either \code{"tr"} (first transform,
 then calculate reference) or either \code{"rt"} (first calculate reference,
 then transform).}
-}}
+}
+}
 \usage{
 ynames_lookup
 }
