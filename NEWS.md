@@ -1,3 +1,7 @@
+# chartcatalog 1.5.0
+
+* Adds the `get_reference_call()` function to extract the proper call to `clopus`
+
 # chartcatalog 1.4.0
 
 * Reduced number of breakpoints for the terneuzen data
