@@ -81,8 +81,16 @@ get_chartgrp("PJEAN26")
 get_ynames("PJEAN26")
 ```
 
-We obtain the post-natal growth reference of weight of preterms born at 
-a gestational age of 26 week by
+We obtain the call to the `clopus` package to the post-natal growth reference 
+of weight of preterms born at a gestational age of 26 week by
+
+```{r getcall}
+call <- get_reference_call("PJEAN26", yname = "wgt")
+call
+```
+
+This call can be stored as a shortcut to the reference. Use `eval(parse(text = call))` to execute the call.
+Alternatively, we may obtain the reference directly from `clopus` by
 
 ```{r getref}
 tb <- get_reference("PJEAN26", yname = "wgt")

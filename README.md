@@ -48,7 +48,7 @@ head(ynames_lookup)
 #> 5 function(x) x * 12 function(y) y  tr
 #> 6 function(x) x * 12 function(y) y  tr
 length(unique(ynames_lookup$chartcode))
-#> [1] 306
+#> [1] 358
 ```
 
 The charts are subdivided into three groups:
@@ -64,10 +64,10 @@ chart groups:
 ``` r
 with(ynames_lookup, table(chartgrp, yname))
 #>          yname
-#> chartgrp  bmi hdc hgt wfh wgt
-#>   nl2010   16  44  52  32  20
-#>   preterm   0  48  96   0  96
-#>   who       0   4   8   4   4
+#> chartgrp  bmi dsc hdc hgt wfh wgt
+#>   nl2010   16   4  44  52  32  20
+#>   preterm   0  48  48  96   0  96
+#>   who       0   0   4   8   4   4
 ```
 
 ## Example 2: Chartcode creating and parsing
@@ -115,8 +115,18 @@ get_ynames("PJEAN26")
 #>   "hgt"   "wgt"
 ```
 
-We obtain the post-natal growth reference of weight of preterms born at
-a gestational age of 26 week by
+We obtain the call to the `clopus` package to the post-natal growth
+reference of weight of preterms born at a gestational age of 26 week by
+
+``` r
+call <- get_reference_call("PJEAN26", yname = "wgt")
+call
+#> [1] "clopus::preterm[[\"pt2012a.mwgt26\"]]"
+```
+
+This call can be stored as a shortcut to the reference. Use
+`eval(parse(text = call))` to execute the call. Alternatively, we may
+obtain the reference directly from `clopus` by
 
 ``` r
 tb <- get_reference("PJEAN26", yname = "wgt")
@@ -237,5 +247,5 @@ slot(tb, "info")
 #> [1] "Bemerkung =\t\t\t\t\t\t\t\t\t\t\t\t\t"
 #> 
 #> Slot "date":
-#> [1] "2020-01-13 18:13:59 CET"
+#> [1] "2020-02-17 11:09:02 CET"
 ```
