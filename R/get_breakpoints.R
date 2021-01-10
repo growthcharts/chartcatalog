@@ -1,7 +1,10 @@
 #' Find table of break ages and labels
 #'
-#' @param dnr Name of donor dataset
+#' @param dnr Name of donor dataset. May include \code{"0-2"}, \code{"2-4"} and \code{"4-18"}
 #' @return A data frame with three columns: \code{visit}, \code{age} and \code{label}
+#' @note
+#' SvB 10/01/2021: This function is perhaps better replaced by a read from the
+#' fitted brokenstick object.
 #' @examples
 #' get_breakpoints("pops")
 #' @export
@@ -39,11 +42,9 @@ get_breakpoints <- function(dnr = "smocc") {
     stringsAsFactors = FALSE
   )
 
-  if (dnr[1] == "smocc") return(breakpoints0_2)
-  if (dnr[1] == "lollypop.preterm" ||
-      dnr[1] == "lollypop.term" ||
-      dnr[1] == "lollypop") return(breakpoints0_4)
+  if (dnr[1] %in% c("0-2", "smocc")) return(breakpoints0_2)
+  if (dnr[1] %in% c("2-4", "lollypop")) return(breakpoints0_4)
   if (dnr[1] == "pops") return(breakpoints0_19)
-  if (dnr[1] == "terneuzen") return(breakpoints0_29)
+  if (dnr[1] %in% c("4-18", "terneuzen")) return(breakpoints0_29)
   stop("No breakpoints defined for study ", dnr)
 }

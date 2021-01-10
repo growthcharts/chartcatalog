@@ -7,13 +7,17 @@
 get_breakpoints(dnr = "smocc")
 }
 \arguments{
-\item{dnr}{Name of donor dataset}
+\item{dnr}{Name of donor dataset. May include \code{"0-2"}, \code{"2-4"} and \code{"4-18"}}
 }
 \value{
 A data frame with three columns: \code{visit}, \code{age} and \code{label}
 }
 \description{
 Find table of break ages and labels
+}
+\note{
+SvB 10/01/2021: This function is perhaps better replaced by a read from the
+fitted brokenstick object.
 }
 \examples{
 get_breakpoints("pops")
