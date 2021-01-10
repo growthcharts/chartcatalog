@@ -1,3 +1,7 @@
+# chartcatalog 1.6.0
+
+* Extends `get_breakpoints()` to accodomoate for donor choices `0-2`, `2-4` and `4-18`.
+
 # chartcatalog 1.5.0
 
 * Adds the `get_reference_call()` function to extract the proper call to `clopus`
