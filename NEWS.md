@@ -1,3 +1,9 @@
+# chartcatalog 1.7.0
+
+* Tranfers repo to <https://github.com/growthcharts/chartcatalog>
+* Add GH actions `R-CMD-check` and `pkgdown`
+* Creates `gh-pages` branch for online documentation
+
 # chartcatalog 1.6.0
 
 * Extends `get_breakpoints()` to accodomoate for donor choices `0-2`, `2-4` and `4-18`.
