@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 # chartcatalog
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/growthcharts/chartcatalog/workflows/R-CMD-check/badge.svg)](https://github.com/growthcharts/chartcatalog/actions)
 <!-- badges: end -->
 
 The `chartcatalog` package contains tools to

@@ -5,15 +5,16 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/growthcharts/chartcatalog/workflows/R-CMD-check/badge.svg)](https://github.com/growthcharts/chartcatalog/actions)
 <!-- badges: end -->
 
 The `chartcatalog` package contains tools to
 
-  - Lookup available charts in JAMES;
-  - Create and parse chart codes;
-  - Find outcomes, chart group and growth reference;
-  - Obtain viewport number and transformation functions;
-  - Lookup breakpoints from the brokenstick model.
+-   Lookup available charts in JAMES;
+-   Create and parse chart codes;
+-   Find outcomes, chart group and growth reference;
+-   Obtain viewport number and transformation functions;
+-   Lookup breakpoints from the brokenstick model.
 
 ## Installation
 
@@ -247,5 +248,5 @@ slot(tb, "info")
 #> [1] "Bemerkung =\t\t\t\t\t\t\t\t\t\t\t\t\t"
 #> 
 #> Slot "date":
-#> [1] "2020-02-17 11:09:02 CET"
+#> [1] "2021-01-27 16:33:21 CET"
 ```
