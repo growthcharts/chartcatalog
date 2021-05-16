@@ -1,3 +1,7 @@
+# chartcatalog 1.8.0
+
+* Changes repo name to `growthcharts` in README and LICENCE
+
 # chartcatalog 1.7.0
 
 * Tranfers repo to <https://github.com/growthcharts/chartcatalog>
