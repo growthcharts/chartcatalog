@@ -22,7 +22,7 @@ You can install the development version `chartcatalog` by
 
 ``` r
 install.packages("remotes")
-remotes::install_github("stefvanbuuren/chartcatalog")
+remotes::install_github("growthcharts/chartcatalog")
 ```
 
 There is no release on CRAN.
