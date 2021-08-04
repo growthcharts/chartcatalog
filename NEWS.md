@@ -1,3 +1,7 @@
+# chartcatalog 1.9.0
+
+* Adds the Down Syndrom population to `parse_chartcode()`
+
 # chartcatalog 1.8.0
 
 * Changes repo name to `growthcharts` in README and LICENCE
