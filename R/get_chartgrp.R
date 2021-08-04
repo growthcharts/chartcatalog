@@ -25,6 +25,7 @@ get_chartgrp <- function(chartcode = NULL) {
            'E' = 'nl2010',
            'H' = 'nl2010',
            'W' = 'who',
+           'D' = 'nl2010',
            NULL)}, "a")
   findit(chartcode)
 }

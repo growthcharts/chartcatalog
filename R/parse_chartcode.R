@@ -34,6 +34,7 @@ parse_chartcode <- function(chartcode = NULL) {
                        'P' = 'PT',
                        'E' = 'NL',
                        'H' = 'HS',
+                       'D' = 'DS',
                        'W' = ifelse(substr(chartcode, 2, 2) == 'J', 'WHOblue', 'WHOpink'),
                        NULL
   )

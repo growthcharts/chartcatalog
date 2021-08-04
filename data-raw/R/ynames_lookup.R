@@ -172,6 +172,19 @@ get_reference_calltext <- function(chartgrp, chartcode, yname) {
     if (p$population == "HS" && p$sex == "female" && yname == "wfh")
       return(paste0('clopus::', 'nlhs', '[["', 'nl1976wfh.fwfhHS', '"]]'))
 
+    if (p$population == "DS" && p$sex == "male" && yname == "hdc")
+      return(paste0('clopus::', 'nl2009', '[["', 'nl2009.mhdcDS', '"]]'))
+    if (p$population == "DS" && p$sex == "male" && yname == "hgt")
+      return(paste0('clopus::', 'nl2009', '[["', 'nl2009.mhgtDS', '"]]'))
+    if (p$population == "DS" && p$sex == "male" && yname == "wgt")
+      return(paste0('clopus::', 'nl2009', '[["', 'nl2009.mwgtDS', '"]]'))
+    if (p$population == "DS" && p$sex == "female" && yname == "hdc")
+      return(paste0('clopus::', 'nl2009', '[["', 'nl2009.fhdcDS', '"]]'))
+    if (p$population == "DS" && p$sex == "female" && yname == "hgt")
+      return(paste0('clopus::', 'nl2009', '[["', 'nl2009.fhgtDS', '"]]'))
+    if (p$population == "DS" && p$sex == "female" && yname == "wgt")
+      return(paste0('clopus::', 'nl2009', '[["', 'nl2009.fwgtDS', '"]]'))
+
     return(NA_character_)
   }
 

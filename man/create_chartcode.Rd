@@ -6,7 +6,7 @@
 \usage{
 create_chartcode(
   chartgrp = c("nl2010", "preterm", "who"),
-  etn = c("nl", "tu", "ma", "hs"),
+  etn = c("nl", "tu", "ma", "hs", "ds"),
   sex = c("male", "female"),
   agegrp = c("0-15m", "0-4y", "1-21y", "0-21y", "0-4ya"),
   side = c("front", "back", "-hdc", "both", "hgt", "wgt", "hdc", "bmi", "wfh", "dsc"),
@@ -18,8 +18,8 @@ create_chartcode(
 \arguments{
 \item{chartgrp}{The chart group: \code{'nl2010'}, \code{'preterm'} or \code{'who'}}
 
-\item{etn}{Either \code{'nl'}, \code{'tu'}, \code{'ma'} or
-\code{'hs'}. May also be abbreviates to a single letter.}
+\item{etn}{Either \code{'nl'}, \code{'tu'}, \code{'ma'}, \code{'hs'} or \code{'ds'}.
+May also be abbreviates to a single letter.}
 
 \item{sex}{Either \code{'male'} or \code{'female'}}
 
