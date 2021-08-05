@@ -1,6 +1,7 @@
 # chartcatalog 1.9.0
 
-* Adds the Down Syndrom population to `parse_chartcode()`
+* Adds the Down Syndrome population to `parse_chartcode()`
+* Expands `yname_lookup` table with Down Syndrome charts
 
 # chartcatalog 1.8.0
 

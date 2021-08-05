@@ -39,7 +39,11 @@ There is no release on CRAN.
 
 ## Example 1: Available charts in JAMES
 
-The current version holds 306 Dutch charts.
+```{r setup, echo=FALSE, hide=TRUE}
+library(chartcatalog)
+```
+
+The current catalogs holds `r length(unique(ynames_lookup$chartcode))` Dutch charts.
 
 ```{r example}
 library(chartcatalog)
@@ -71,7 +75,7 @@ parse_chartcode(c("HJAA"))
 ```
 
 shows that chart with code `"HJAA"` identifies the front of the chart for 
-Hindostani boys living in the Netherlands, design A (A4 size, 0-15 months).
+Hindustan boys living in the Netherlands, design A (A4 size, 0-15 months).
 
 ## Example 3: Find outcomes, chart group and growth reference
 
@@ -91,16 +95,17 @@ call
 ```
 
 This call can be stored as a shortcut to the reference. Use `eval(parse(text = call))` to execute the call.
-Alternatively, we may obtain the reference directly from `clopus` by
+Alternatively, if you have `clopus` installed, we may obtain the reference directly by
 
 ```{r getref}
 tb <- get_reference("PJEAN26", yname = "wgt")
-tb
+slotNames(tb)
+head(data.frame(tb@table@table))
 ```
 
 More details can be found in the `info` slot:
 
 ```{r tbinfo}
-slot(tb, "info")
+tb@info
 ```
 

@@ -29,18 +29,18 @@ There is no release on CRAN.
 
 ## Example 1: Available charts in JAMES
 
-The current version holds 306 Dutch charts.
+The current catalogs holds 384 Dutch charts.
 
 ``` r
 library(chartcatalog)
 head(ynames_lookup)
-#>   chartgrp chartcode yname vpn vp                          reference
-#> 1   nl2010      HJAA   hdc   3  A  clopus::nl1997[["nl1997.mhdcNL"]]
-#> 2   nl2010      HJAA   hgt   4  B clopus::nlhs[["nl2010hgt.mhgtHS"]]
-#> 3   nl2010      HJAA   wgt   5  C clopus::nlhs[["nl1976wgt.mwgtHS"]]
-#> 4   nl2010      HJAH   hgt   1  A clopus::nlhs[["nl2010hgt.mhgtHS"]]
-#> 5   nl2010      HJAO   hdc   1  A  clopus::nl1997[["nl1997.mhdcNL"]]
-#> 6   nl2010      HJAW   wgt   1  A clopus::nlhs[["nl1976wgt.mwgtHS"]]
+#>   chartgrp chartcode yname vpn vp                         reference
+#> 1   nl2010      DJAA   hdc   3  A clopus::nl2009[["nl2009.mhdcDS"]]
+#> 2   nl2010      DJAA   hgt   4  B clopus::nl2009[["nl2009.mhgtDS"]]
+#> 3   nl2010      DJAA   wgt   5  C   clopus::nl1980[["nl1980.mwgt"]]
+#> 4   nl2010      DJAH   hgt   1  A clopus::nl2009[["nl2009.mhgtDS"]]
+#> 5   nl2010      DJAO   hdc   1  A clopus::nl2009[["nl2009.mhdcDS"]]
+#> 6   nl2010      DJAW   wgt   1  A   clopus::nl1980[["nl1980.mwgt"]]
 #>                   tx            ty seq
 #> 1 function(x) x * 12 function(y) y  tr
 #> 2 function(x) x * 12 function(y) y  tr
@@ -49,7 +49,7 @@ head(ynames_lookup)
 #> 5 function(x) x * 12 function(y) y  tr
 #> 6 function(x) x * 12 function(y) y  tr
 length(unique(ynames_lookup$chartcode))
-#> [1] 358
+#> [1] 384
 ```
 
 The charts are subdivided into three groups:
@@ -66,7 +66,7 @@ chart groups:
 with(ynames_lookup, table(chartgrp, yname))
 #>          yname
 #> chartgrp  bmi dsc hdc hgt wfh wgt
-#>   nl2010   16   4  44  52  32  20
+#>   nl2010   20   4  52  64  40  24
 #>   preterm   0  48  48  96   0  96
 #>   who       0   0   4   8   4   4
 ```
@@ -100,7 +100,7 @@ parse_chartcode(c("HJAA"))
 ```
 
 shows that chart with code `"HJAA"` identifies the front of the chart
-for Hindostani boys living in the Netherlands, design A (A4 size, 0-15
+for Hindustan boys living in the Netherlands, design A (A4 size, 0-15
 months).
 
 ## Example 3: Find outcomes, chart group and growth reference
@@ -126,81 +126,27 @@ call
 ```
 
 This call can be stored as a shortcut to the reference. Use
-`eval(parse(text = call))` to execute the call. Alternatively, we may
-obtain the reference directly from `clopus` by
+`eval(parse(text = call))` to execute the call. Alternatively, if you
+have `clopus` installed, we may obtain the reference directly by
 
 ``` r
 tb <- get_reference("PJEAN26", yname = "wgt")
-tb
-#> reference -- country: NL   year: 2012   sex: male   yvar: wgt   dist: LMS 
-#>         x       L      M     S
-#> 1  0.0000  1.0885  0.985 0.206
-#> 2  0.0027  1.0836  0.971 0.206
-#> 3  0.0055  1.0785  0.960 0.207
-#> 4  0.0082  1.0737  0.950 0.207
-#> 5  0.0110  1.0688  0.943 0.208
-#> 6  0.0137  1.0642  0.937 0.208
-#> 7  0.0164  1.0596  0.933 0.208
-#> 8  0.0192  1.0549  0.930 0.209
-#> 9  0.0219  1.0504  0.929 0.209
-#> 10 0.0246  1.0460  0.930 0.209
-#> 11 0.0274  1.0416  0.932 0.210
-#> 12 0.0301  1.0373  0.936 0.210
-#> 13 0.0329  1.0329  0.941 0.210
-#> 14 0.0356  1.0288  0.947 0.210
-#> 15 0.0383  1.0247  0.954 0.211
-#> 16 0.0575  0.9970  1.036 0.212
-#> 17 0.0767  0.9717  1.160 0.212
-#> 18 0.0958  0.9485  1.313 0.213
-#> 19 0.1150  0.9269  1.489 0.212
-#> 20 0.1342  0.9068  1.679 0.212
-#> 21 0.1533  0.8881  1.877 0.211
-#> 22 0.1725  0.8705  2.082 0.210
-#> 23 0.1916  0.8540  2.289 0.209
-#> 24 0.2108  0.8384  2.498 0.208
-#> 25 0.2300  0.8236  2.706 0.207
-#> 26 0.2491  0.8097  2.913 0.206
-#> 27 0.2500  0.8090  2.922 0.206
-#> 28 0.2917  0.7809  3.363 0.203
-#> 29 0.3333  0.7554  3.785 0.200
-#> 30 0.3750  0.7320  4.188 0.198
-#> 31 0.4167  0.7103  4.569 0.195
-#> 32 0.4583  0.6902  4.928 0.193
-#> 33 0.5000  0.6712  5.267 0.190
-#> 34 0.5417  0.6532  5.587 0.188
-#> 35 0.5833  0.6361  5.887 0.186
-#> 36 0.6250  0.6197  6.170 0.185
-#> 37 0.6667  0.6039  6.438 0.183
-#> 38 0.7083  0.5887  6.690 0.181
-#> 39 0.7500  0.5740  6.931 0.180
-#> 40 0.7917  0.5597  7.159 0.179
-#> 41 0.8333  0.5457  7.375 0.178
-#> 42 0.8750  0.5321  7.583 0.176
-#> 43 0.9167  0.5188  7.781 0.175
-#> 44 0.9583  0.5057  7.971 0.175
-#> 45 1.0000  0.4929  8.153 0.174
-#> 46 1.0833  0.4679  8.498 0.172
-#> 47 1.1667  0.4436  8.821 0.171
-#> 48 1.2500  0.4201  9.125 0.170
-#> 49 1.3333  0.3971  9.413 0.168
-#> 50 1.4167  0.3746  9.688 0.168
-#> 51 1.5000  0.3527  9.950 0.167
-#> 52 1.5833  0.3312 10.204 0.166
-#> 53 1.6667  0.3101 10.448 0.165
-#> 54 1.7500  0.2894 10.685 0.165
-#> 55 1.8333  0.2691 10.916 0.164
-#> 56 1.9167  0.2492 11.140 0.164
-#> 57 2.0000  0.2296 11.360 0.163
-#> 58 2.5000  0.1183 12.588 0.161
-#> 59 3.0000  0.0164 13.703 0.160
-#> 60 3.5000 -0.0776 14.732 0.160
-#> 61 4.0000 -0.1650 15.689 0.160
+slotNames(tb)
+#> [1] "table" "info"
+head(data.frame(tb@table@table))
+#>        x    L     M     S
+#> 1 0.0000 1.09 0.985 0.206
+#> 2 0.0027 1.08 0.971 0.206
+#> 3 0.0055 1.08 0.960 0.207
+#> 4 0.0082 1.07 0.950 0.207
+#> 5 0.0110 1.07 0.943 0.208
+#> 6 0.0137 1.06 0.937 0.208
 ```
 
 More details can be found in the `info` slot:
 
 ``` r
-slot(tb, "info")
+tb@info
 #> An object of class "referenceInfo"
 #> Slot "n":
 #> [1] 4
