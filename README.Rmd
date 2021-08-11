@@ -24,7 +24,7 @@ The `chartcatalog` package contains tools to
 - Create and parse chart codes;
 - Find outcomes, chart group and growth reference;
 - Obtain viewport number and transformation functions;
-- Lookup breakpoints from the brokenstick model.
+- Lookup break points from the brokenstick model.
 
 ## Installation
 
