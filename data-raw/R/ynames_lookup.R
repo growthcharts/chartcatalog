@@ -239,6 +239,34 @@ for (i in 1:nrow(ynames_lookup)) {
   ynames_lookup[i, "reference"] <- text
 }
 
+## define Dutch hdc reference for TU, MA, DS for 0-4 and 1-21 design
+ynames_lookup[ynames_lookup$chartcode == "DJBO", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "DJCO", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "DMBO", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "DMCO", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "TJBO", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "TJCO", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "TMBO", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "TMCO", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "MJBO", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "MJCO", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "MMBO", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "MMCO", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+
+ynames_lookup[ynames_lookup$chartcode == "DJBB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "DJCB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "DMBB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "DMCB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "TJBB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "TJCB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "TMBB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "TMCB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "MJBB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "MJCB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.mhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "MMBB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+ynames_lookup[ynames_lookup$chartcode == "MMCB" & ynames_lookup$yname == "hdc", "reference"] <- 'clopus::nl1997[["nl1997.fhdcNL"]]'
+
+
 ## check if all references can be found
 refs <- lapply(ynames_lookup$reference, function(x) eval(parse(text = x)))
 idx <- sapply(refs, is.null)
