@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chartcatalog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.9.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.10.0</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@
 <li>Create and parse chart codes;</li>
 <li>Find outcomes, chart group and growth reference;</li>
 <li>Obtain viewport number and transformation functions;</li>
-<li>Lookup breakpoints from the brokenstick model.</li>
+<li>Lookup break points from the brokenstick model.</li>
 </ul>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -95,7 +95,7 @@
 <div id="example-1-available-charts-in-james" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-1-available-charts-in-james" class="anchor"></a>Example 1: Available charts in JAMES</h2>
-<p>The current catalogs holds 384 Dutch charts.</p>
+<p>The current catalogs holds 388 Dutch charts.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/growthcharts/chartcatalog">chartcatalog</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">)</span>
@@ -114,7 +114,7 @@
 <span class="co">#&gt; 5 function(x) x * 12 function(y) y  tr</span>
 <span class="co">#&gt; 6 function(x) x * 12 function(y) y  tr</span>
 <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartcode</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] 384</span></code></pre></div>
+<span class="co">#&gt; [1] 388</span></code></pre></div>
 <p>The charts are subdivided into three groups:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartgrp</span><span class="op">)</span>
@@ -124,7 +124,7 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">ynames_lookup</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">chartgrp</span>, <span class="va">yname</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;          yname</span>
 <span class="co">#&gt; chartgrp  bmi dsc hdc hgt wfh wgt</span>
-<span class="co">#&gt;   nl2010   20   4  52  64  40  24</span>
+<span class="co">#&gt;   nl2010   20   4  56  64  40  24</span>
 <span class="co">#&gt;   preterm   0  48  48  96   0  96</span>
 <span class="co">#&gt;   who       0   0   4   8   4   4</span></code></pre></div>
 </div>
