@@ -1,7 +1,12 @@
+# chartcatalog 1.10.0
+
+* Adds four additional head circumference chart for Down syndrome
+* Correct reference specifications for hdc of nl2010 charts in `ynames_lookup`
+
 # chartcatalog 1.9.0
 
 * Adds the Down Syndrome population to `parse_chartcode()`
-* Expands `yname_lookup` table with Down Syndrome charts
+* Expands `ynames_lookup` table with Down Syndrome charts
 
 # chartcatalog 1.8.0
 
