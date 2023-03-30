@@ -26,6 +26,10 @@ parse_chartcode <- function(chartcode = NULL) {
   if (is.null(chartcode)) return(NULL)
   chartcode <- chartcode[1]
 
+  # preterm chart?
+  week <- substr(chartcode, 6, 7)
+  preterm <- ifelse(week == "", FALSE, TRUE)
+
   # 1: population group
   population <- switch(EXPR = substr(chartcode, 1, 1),
                        'N' = 'NL',
@@ -66,15 +70,14 @@ parse_chartcode <- function(chartcode = NULL) {
 
   # 5: language
   language <- 'dutch'
-  if (population == "PT")
+  if (preterm)
     language <- switch(EXPR = substr(chartcode, 5, 5),
                        'N' = "dutch",
                        'E' = "english",
                        NULL)
 
   # 6: week
-  week <- ""
-  if (population == "PT") week <- substr(chartcode, 6, 7)
+  # See above
 
   return(list(population = population,
               sex = sex,
