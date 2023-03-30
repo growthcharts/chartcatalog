@@ -1,3 +1,7 @@
+# chartcatalog 1.11.0
+
+* Adds WHO chart code for preterm so as to prepare for WHO D-score charts
+
 # chartcatalog 1.10.0
 
 * Adds four additional head circumference chart for Down syndrome

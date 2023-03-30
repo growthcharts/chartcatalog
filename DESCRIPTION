@@ -1,7 +1,7 @@
 Package: chartcatalog
 Type: Package
 Title: Catalog of JAMES Growth Charts
-Version: 1.10.0
+Version: 1.11.0
 Authors@R: person("Stef", "van Buuren", email = "stef.vanbuuren@tno.nl", role = c("aut", "cre"))
 Maintainer: Stef van Buuren <stef.vanbuuren@tno.nl>
 Description: Tools for naming growth charts, and methods for 
@@ -10,5 +10,5 @@ License: AGPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 2.10)
-RoxygenNote: 7.1.1
 URL: https://github.com/growthcharts/chartcatalog
+RoxygenNote: 7.2.3
