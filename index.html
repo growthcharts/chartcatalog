@@ -20,6 +20,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -32,18 +34,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chartcatalog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.10.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.11.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -53,7 +49,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/growthcharts/chartcatalog/">
+  <a href="https://github.com/growthcharts/chartcatalog/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -70,11 +66,10 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="chartcatalog" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#chartcatalog" class="anchor"></a>chartcatalog</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="chartcatalog">chartcatalog<a class="anchor" aria-label="anchor" href="#chartcatalog"></a>
+</h1></div>
 <!-- badges: start -->
-
 <p>The <code>chartcatalog</code> package contains tools to</p>
 <ul>
 <li>Lookup available charts in JAMES;</li>
@@ -83,199 +78,211 @@
 <li>Obtain viewport number and transformation functions;</li>
 <li>Lookup break points from the brokenstick model.</li>
 </ul>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>You can install the development version <code>chartcatalog</code> by</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"growthcharts/chartcatalog"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"growthcharts/chartcatalog"</span><span class="op">)</span></span></code></pre></div>
 <p>There is no release on CRAN.</p>
 </div>
-<div id="example-1-available-charts-in-james" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example-1-available-charts-in-james" class="anchor"></a>Example 1: Available charts in JAMES</h2>
+<div class="section level2">
+<h2 id="example-1-available-charts-in-james">Example 1: Available charts in JAMES<a class="anchor" aria-label="anchor" href="#example-1-available-charts-in-james"></a>
+</h2>
 <p>The current catalogs holds 388 Dutch charts.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/growthcharts/chartcatalog">chartcatalog</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">)</span>
-<span class="co">#&gt;   chartgrp chartcode yname vpn vp                         reference</span>
-<span class="co">#&gt; 1   nl2010      DJAA   hdc   3  A clopus::nl2009[["nl2009.mhdcDS"]]</span>
-<span class="co">#&gt; 2   nl2010      DJAA   hgt   4  B clopus::nl2009[["nl2009.mhgtDS"]]</span>
-<span class="co">#&gt; 3   nl2010      DJAA   wgt   5  C   clopus::nl1980[["nl1980.mwgt"]]</span>
-<span class="co">#&gt; 4   nl2010      DJAH   hgt   1  A clopus::nl2009[["nl2009.mhgtDS"]]</span>
-<span class="co">#&gt; 5   nl2010      DJAO   hdc   1  A clopus::nl2009[["nl2009.mhdcDS"]]</span>
-<span class="co">#&gt; 6   nl2010      DJAW   wgt   1  A   clopus::nl1980[["nl1980.mwgt"]]</span>
-<span class="co">#&gt;                   tx            ty seq</span>
-<span class="co">#&gt; 1 function(x) x * 12 function(y) y  tr</span>
-<span class="co">#&gt; 2 function(x) x * 12 function(y) y  tr</span>
-<span class="co">#&gt; 3 function(x) x * 12 function(y) y  tr</span>
-<span class="co">#&gt; 4 function(x) x * 12 function(y) y  tr</span>
-<span class="co">#&gt; 5 function(x) x * 12 function(y) y  tr</span>
-<span class="co">#&gt; 6 function(x) x * 12 function(y) y  tr</span>
-<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartcode</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] 388</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/growthcharts/chartcatalog" class="external-link">chartcatalog</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   chartgrp chartcode yname vpn vp                         reference</span></span>
+<span><span class="co">#&gt; 1   nl2010      DJAA   hdc   3  A clopus::nl2009[["nl2009.mhdcDS"]]</span></span>
+<span><span class="co">#&gt; 2   nl2010      DJAA   hgt   4  B clopus::nl2009[["nl2009.mhgtDS"]]</span></span>
+<span><span class="co">#&gt; 3   nl2010      DJAA   wgt   5  C   clopus::nl1980[["nl1980.mwgt"]]</span></span>
+<span><span class="co">#&gt; 4   nl2010      DJAH   hgt   1  A clopus::nl2009[["nl2009.mhgtDS"]]</span></span>
+<span><span class="co">#&gt; 5   nl2010      DJAO   hdc   1  A clopus::nl2009[["nl2009.mhdcDS"]]</span></span>
+<span><span class="co">#&gt; 6   nl2010      DJAW   wgt   1  A   clopus::nl1980[["nl1980.mwgt"]]</span></span>
+<span><span class="co">#&gt;                   tx            ty seq</span></span>
+<span><span class="co">#&gt; 1 function(x) x * 12 function(y) y  tr</span></span>
+<span><span class="co">#&gt; 2 function(x) x * 12 function(y) y  tr</span></span>
+<span><span class="co">#&gt; 3 function(x) x * 12 function(y) y  tr</span></span>
+<span><span class="co">#&gt; 4 function(x) x * 12 function(y) y  tr</span></span>
+<span><span class="co">#&gt; 5 function(x) x * 12 function(y) y  tr</span></span>
+<span><span class="co">#&gt; 6 function(x) x * 12 function(y) y  tr</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartcode</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 388</span></span></code></pre></div>
 <p>The charts are subdivided into three groups:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartgrp</span><span class="op">)</span>
-<span class="co">#&gt; [1] "nl2010"  "preterm" "who"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartgrp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "nl2010"  "preterm" "who"</span></span></code></pre></div>
 <p>There are five outcomes, but not every outcome (<code>yname</code>) appears in all chart groups:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">ynames_lookup</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">chartgrp</span>, <span class="va">yname</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt;          yname</span>
-<span class="co">#&gt; chartgrp  bmi dsc hdc hgt wfh wgt</span>
-<span class="co">#&gt;   nl2010   20   4  56  64  40  24</span>
-<span class="co">#&gt;   preterm   0  48  48  96   0  96</span>
-<span class="co">#&gt;   who       0   0   4   8   4   4</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">ynames_lookup</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">chartgrp</span>, <span class="va">yname</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;          yname</span></span>
+<span><span class="co">#&gt; chartgrp  bmi dsc hdc hgt wfh wgt</span></span>
+<span><span class="co">#&gt;   nl2010   20   4  56  64  40  24</span></span>
+<span><span class="co">#&gt;   preterm   0  48  48  96   0  96</span></span>
+<span><span class="co">#&gt;   who       0   0   4   8   4   4</span></span></code></pre></div>
 </div>
-<div id="example-2-chartcode-creating-and-parsing" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example-2-chartcode-creating-and-parsing" class="anchor"></a>Example 2: Chartcode creating and parsing</h2>
+<div class="section level2">
+<h2 id="example-2-chartcode-creating-and-parsing">Example 2: Chartcode creating and parsing<a class="anchor" aria-label="anchor" href="#example-2-chartcode-creating-and-parsing"></a>
+</h2>
 <p>A <code>chartcode</code> identifies the type of growth chart. The code is a combination of 4–7 alphanumeric characters. The <code><a href="reference/create_chartcode.html">create_chartcode()</a></code> and <code><a href="reference/parse_chartcode.html">parse_chartcode()</a></code> functions can be used to obtain information from the codes. For example,</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/parse_chartcode.html">parse_chartcode</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"HJAA"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; $population</span>
-<span class="co">#&gt; [1] "HS"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $sex</span>
-<span class="co">#&gt; [1] "male"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $design</span>
-<span class="co">#&gt; [1] "A"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $side</span>
-<span class="co">#&gt; [1] "front"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $language</span>
-<span class="co">#&gt; [1] "dutch"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $week</span>
-<span class="co">#&gt; [1] ""</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/parse_chartcode.html">parse_chartcode</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HJAA"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $population</span></span>
+<span><span class="co">#&gt; [1] "HS"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $sex</span></span>
+<span><span class="co">#&gt; [1] "male"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $design</span></span>
+<span><span class="co">#&gt; [1] "A"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $side</span></span>
+<span><span class="co">#&gt; [1] "front"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $language</span></span>
+<span><span class="co">#&gt; [1] "dutch"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $week</span></span>
+<span><span class="co">#&gt; [1] ""</span></span></code></pre></div>
 <p>shows that chart with code <code>"HJAA"</code> identifies the front of the chart for Hindustan boys living in the Netherlands, design A (A4 size, 0-15 months).</p>
 </div>
-<div id="example-3-find-outcomes-chart-group-and-growth-reference" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example-3-find-outcomes-chart-group-and-growth-reference" class="anchor"></a>Example 3: Find outcomes, chart group and growth reference</h2>
+<div class="section level2">
+<h2 id="example-3-find-outcomes-chart-group-and-growth-reference">Example 3: Find outcomes, chart group and growth reference<a class="anchor" aria-label="anchor" href="#example-3-find-outcomes-chart-group-and-growth-reference"></a>
+</h2>
 <p>If we have a chart code, we may find its chart group and outcomes as</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/get_chartgrp.html">get_chartgrp</a></span><span class="op">(</span><span class="st">"PJEAN26"</span><span class="op">)</span>
-<span class="co">#&gt;   PJEAN26 </span>
-<span class="co">#&gt; "preterm"</span>
-<span class="fu"><a href="reference/get_ynames.html">get_ynames</a></span><span class="op">(</span><span class="st">"PJEAN26"</span><span class="op">)</span>
-<span class="co">#&gt; PJEAN26 PJEAN26 </span>
-<span class="co">#&gt;   "hgt"   "wgt"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/get_chartgrp.html">get_chartgrp</a></span><span class="op">(</span><span class="st">"PJEAN26"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   PJEAN26 </span></span>
+<span><span class="co">#&gt; "preterm"</span></span>
+<span><span class="fu"><a href="reference/get_ynames.html">get_ynames</a></span><span class="op">(</span><span class="st">"PJEAN26"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; PJEAN26 PJEAN26 </span></span>
+<span><span class="co">#&gt;   "hgt"   "wgt"</span></span></code></pre></div>
 <p>We obtain the call to the <code>clopus</code> package to the post-natal growth reference of weight of preterms born at a gestational age of 26 week by</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">call</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_reference.html">get_reference_call</a></span><span class="op">(</span><span class="st">"PJEAN26"</span>, yname <span class="op">=</span> <span class="st">"wgt"</span><span class="op">)</span>
-<span class="va">call</span>
-<span class="co">#&gt; [1] "clopus::preterm[[\"pt2012a.mwgt26\"]]"</span></code></pre></div>
-<p>This call can be stored as a shortcut to the reference. Use <code><a href="https://rdrr.io/r/base/eval.html">eval(parse(text = call))</a></code> to execute the call. Alternatively, if you have <code>clopus</code> installed, we may obtain the reference directly by</p>
+<code class="sourceCode R"><span><span class="va">call</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_reference.html">get_reference_call</a></span><span class="op">(</span><span class="st">"PJEAN26"</span>, yname <span class="op">=</span> <span class="st">"wgt"</span><span class="op">)</span></span>
+<span><span class="va">call</span></span>
+<span><span class="co">#&gt; [1] "clopus::preterm[[\"pt2012a.mwgt26\"]]"</span></span></code></pre></div>
+<p>This call can be stored as a shortcut to the reference. Use <code>eval(parse(text = call))</code> to execute the call. Alternatively, if you have <code>clopus</code> installed, we may obtain the reference directly by</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tb</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_reference.html">get_reference</a></span><span class="op">(</span><span class="st">"PJEAN26"</span>, yname <span class="op">=</span> <span class="st">"wgt"</span><span class="op">)</span>
-<span class="fu">slotNames</span><span class="op">(</span><span class="va">tb</span><span class="op">)</span>
-<span class="co">#&gt; [1] "table" "info"</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">tb</span><span class="op">@</span><span class="va">table</span><span class="op">@</span><span class="va">table</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt;        x    L     M     S</span>
-<span class="co">#&gt; 1 0.0000 1.09 0.985 0.206</span>
-<span class="co">#&gt; 2 0.0027 1.08 0.971 0.206</span>
-<span class="co">#&gt; 3 0.0055 1.08 0.960 0.207</span>
-<span class="co">#&gt; 4 0.0082 1.07 0.950 0.207</span>
-<span class="co">#&gt; 5 0.0110 1.07 0.943 0.208</span>
-<span class="co">#&gt; 6 0.0137 1.06 0.937 0.208</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">tb</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_reference.html">get_reference</a></span><span class="op">(</span><span class="st">"PJEAN26"</span>, yname <span class="op">=</span> <span class="st">"wgt"</span><span class="op">)</span></span>
+<span><span class="fu">slotNames</span><span class="op">(</span><span class="va">tb</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "table" "info"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">tb</span><span class="op">@</span><span class="va">table</span><span class="op">@</span><span class="va">table</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        x    L     M     S</span></span>
+<span><span class="co">#&gt; 1 0.0000 1.09 0.985 0.206</span></span>
+<span><span class="co">#&gt; 2 0.0027 1.08 0.971 0.206</span></span>
+<span><span class="co">#&gt; 3 0.0055 1.08 0.960 0.207</span></span>
+<span><span class="co">#&gt; 4 0.0082 1.07 0.950 0.207</span></span>
+<span><span class="co">#&gt; 5 0.0110 1.07 0.943 0.208</span></span>
+<span><span class="co">#&gt; 6 0.0137 1.06 0.937 0.208</span></span></code></pre></div>
 <p>More details can be found in the <code>info</code> slot:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tb</span><span class="op">@</span><span class="va">info</span>
-<span class="co">#&gt; An object of class "referenceInfo"</span>
-<span class="co">#&gt; Slot "n":</span>
-<span class="co">#&gt; [1] 4</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "i":</span>
-<span class="co">#&gt; [1] 2</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "j":</span>
-<span class="co">#&gt; [1] 2</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "code":</span>
-<span class="co">#&gt; [1] "mpt2012a"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "country":</span>
-<span class="co">#&gt; [1] "NL"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "year":</span>
-<span class="co">#&gt; [1] 2012</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "sex":</span>
-<span class="co">#&gt; [1] "male"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "sub":</span>
-<span class="co">#&gt; character(0)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "yname":</span>
-<span class="co">#&gt; [1] "wgt"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "dist":</span>
-<span class="co">#&gt; [1] "LMS"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "mnx":</span>
-<span class="co">#&gt; [1] 0</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "mxx":</span>
-<span class="co">#&gt; [1] 4</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "source":</span>
-<span class="co">#&gt; [1] "Bocca-Tjeertes 2012"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "public":</span>
-<span class="co">#&gt; character(0)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "remark":</span>
-<span class="co">#&gt; [1] "Bemerkung =\t\t\t\t\t\t\t\t\t\t\t\t\t"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "date":</span>
-<span class="co">#&gt; [1] "2021-01-27 16:33:21 CET"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">tb</span><span class="op">@</span><span class="va">info</span></span>
+<span><span class="co">#&gt; An object of class "referenceInfo"</span></span>
+<span><span class="co">#&gt; Slot "n":</span></span>
+<span><span class="co">#&gt; [1] 4</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "i":</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "j":</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "code":</span></span>
+<span><span class="co">#&gt; [1] "mpt2012a"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "country":</span></span>
+<span><span class="co">#&gt; [1] "NL"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "year":</span></span>
+<span><span class="co">#&gt; [1] 2012</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "sex":</span></span>
+<span><span class="co">#&gt; [1] "male"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "sub":</span></span>
+<span><span class="co">#&gt; character(0)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "yname":</span></span>
+<span><span class="co">#&gt; [1] "wgt"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "dist":</span></span>
+<span><span class="co">#&gt; [1] "LMS"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "mnx":</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "mxx":</span></span>
+<span><span class="co">#&gt; [1] 4</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "source":</span></span>
+<span><span class="co">#&gt; [1] "Bocca-Tjeertes 2012"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "public":</span></span>
+<span><span class="co">#&gt; character(0)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "remark":</span></span>
+<span><span class="co">#&gt; [1] "Bemerkung =\t\t\t\t\t\t\t\t\t\t\t\t\t"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Slot "date":</span></span>
+<span><span class="co">#&gt; [1] "2021-01-27 16:33:21 CET"</span></span></code></pre></div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/growthcharts/chartcatalog/">https://​github.com/​growthcharts/​chartcatalog/​</a>
-</li>
+<li><a href="https://github.com/growthcharts/chartcatalog/" class="external-link">Browse source code</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://www.r-project.org/Licenses/AGPL-3">AGPL-3</a> + file <a href="LICENSE-text.html">LICENSE</a>
+<a href="https://www.r-project.org/Licenses/AGPL-3" class="external-link">AGPL-3</a> + file <a href="LICENSE-text.html">LICENSE</a>
 </li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing chartcatalog</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Stef van Buuren <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/growthcharts/chartcatalog/actions"><img src="https://github.com/growthcharts/chartcatalog/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/growthcharts/chartcatalog/actions" class="external-link"><img src="https://github.com/growthcharts/chartcatalog/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Stef van Buuren.</p>
+  <p></p>
+<p>Developed by Stef van Buuren.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -283,6 +290,8 @@
 
   
 
+
+  
 
   </body>
 </html>
