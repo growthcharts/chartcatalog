@@ -217,6 +217,8 @@ get_reference_calltext <- function(chartgrp, chartcode, yname) {
       return(paste0('clopus::', 'who', '[["who2011.mbmi"]]'))
     if (p$sex == "male" && yname == "wfh")
       return(paste0('clopus::', 'who', '[["who2011.mwfh"]]'))
+    if (p$sex == "male" && yname == "dsc")
+      return(paste0('clopus::', 'dscore', '[["ph2023.mdsc"]]'))
     if (p$sex == "female" && yname == "hdc")
       return(paste0('clopus::', 'who', '[["who2011.fhdc"]]'))
     if (p$sex == "female" && yname == "hgt")
@@ -227,6 +229,8 @@ get_reference_calltext <- function(chartgrp, chartcode, yname) {
       return(paste0('clopus::', 'who', '[["who2011.fbmi"]]'))
     if (p$sex == "female" && yname == "wfh")
       return(paste0('clopus::', 'who', '[["who2011.fwfh"]]'))
+    if (p$sex == "female" && yname == "dsc")
+      return(paste0('clopus::', 'dscore', '[["ph2023.fdsc"]]'))
     return(NA_character_)
   }
 }
