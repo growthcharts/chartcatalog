@@ -1,3 +1,7 @@
+# chartcatalog 1.12.0
+
+* Adds Phase 1 referencs to `ynames_lookup` table
+
 # chartcatalog 1.11.0
 
 * Adds WHO chart code for preterm so as to prepare for WHO D-score charts
