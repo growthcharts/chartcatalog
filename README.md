@@ -6,15 +6,16 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/growthcharts/chartcatalog/workflows/R-CMD-check/badge.svg)](https://github.com/growthcharts/chartcatalog/actions)
+[![R-CMD-check](https://github.com/growthcharts/chartcatalog/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/growthcharts/chartcatalog/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The `chartcatalog` package contains tools to
 
--   Lookup available charts in JAMES;
--   Create and parse chart codes;
--   Find outcomes, chart group and growth reference;
--   Obtain viewport number and transformation functions;
--   Lookup break points from the brokenstick model.
+- Lookup available charts in JAMES;
+- Create and parse chart codes;
+- Find outcomes, chart group and growth reference;
+- Obtain viewport number and transformation functions;
+- Lookup break points from the brokenstick model.
 
 ## Installation
 
@@ -29,7 +30,7 @@ There is no release on CRAN.
 
 ## Example 1: Available charts in JAMES
 
-The current catalogs holds 388 Dutch charts.
+The current catalogs holds 392 Dutch charts.
 
 ``` r
 library(chartcatalog)
@@ -49,7 +50,7 @@ head(ynames_lookup)
 #> 5 function(x) x * 12 function(y) y  tr
 #> 6 function(x) x * 12 function(y) y  tr
 length(unique(ynames_lookup$chartcode))
-#> [1] 388
+#> [1] 392
 ```
 
 The charts are subdivided into three groups:
@@ -68,7 +69,7 @@ with(ynames_lookup, table(chartgrp, yname))
 #> chartgrp  bmi dsc hdc hgt wfh wgt
 #>   nl2010   20   4  56  64  40  24
 #>   preterm   0  48  48  96   0  96
-#>   who       0   0   4   8   4   4
+#>   who       0   4   4   8   4   4
 ```
 
 ## Example 2: Chartcode creating and parsing
