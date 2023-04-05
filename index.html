@@ -70,6 +70,7 @@
 <div class="page-header"><h1 id="chartcatalog">chartcatalog<a class="anchor" aria-label="anchor" href="#chartcatalog"></a>
 </h1></div>
 <!-- badges: start -->
+
 <p>The <code>chartcatalog</code> package contains tools to</p>
 <ul>
 <li>Lookup available charts in JAMES;</li>
@@ -84,13 +85,13 @@
 <p>You can install the development version <code>chartcatalog</code> by</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"growthcharts/chartcatalog"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"growthcharts/chartcatalog"</span><span class="op">)</span></span></code></pre></div>
 <p>There is no release on CRAN.</p>
 </div>
 <div class="section level2">
 <h2 id="example-1-available-charts-in-james">Example 1: Available charts in JAMES<a class="anchor" aria-label="anchor" href="#example-1-available-charts-in-james"></a>
 </h2>
-<p>The current catalogs holds 388 Dutch charts.</p>
+<p>The current catalogs holds 392 Dutch charts.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/growthcharts/chartcatalog" class="external-link">chartcatalog</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">)</span></span>
@@ -109,7 +110,7 @@
 <span><span class="co">#&gt; 5 function(x) x * 12 function(y) y  tr</span></span>
 <span><span class="co">#&gt; 6 function(x) x * 12 function(y) y  tr</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartcode</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 388</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 392</span></span></code></pre></div>
 <p>The charts are subdivided into three groups:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartgrp</span><span class="op">)</span></span>
@@ -121,7 +122,7 @@
 <span><span class="co">#&gt; chartgrp  bmi dsc hdc hgt wfh wgt</span></span>
 <span><span class="co">#&gt;   nl2010   20   4  56  64  40  24</span></span>
 <span><span class="co">#&gt;   preterm   0  48  48  96   0  96</span></span>
-<span><span class="co">#&gt;   who       0   0   4   8   4   4</span></span></code></pre></div>
+<span><span class="co">#&gt;   who       0   4   4   8   4   4</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example-2-chartcode-creating-and-parsing">Example 2: Chartcode creating and parsing<a class="anchor" aria-label="anchor" href="#example-2-chartcode-creating-and-parsing"></a>
@@ -268,6 +269,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/growthcharts/chartcatalog/actions" class="external-link"><img src="https://github.com/growthcharts/chartcatalog/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/growthcharts/chartcatalog/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/growthcharts/chartcatalog/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
