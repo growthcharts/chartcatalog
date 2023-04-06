@@ -1,3 +1,7 @@
+# chartcatalog 1.13.1
+
+* Resolves an error in the logic of `create_chartcode()`
+
 # chartcatalog 1.13.0
 
 * Updates `parse_chartcode()` and  `create_chartcode()` to new preterm D-score charts
