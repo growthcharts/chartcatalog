@@ -1,3 +1,8 @@
+# chartcatalog 1.13.0
+
+* Updates `parse_chartcode()` and  `create_chartcode()` to new preterm D-score charts
+* Updates `ynames_lookup` table with preterm D-score charts
+
 # chartcatalog 1.12.0
 
 * Adds Phase 1 referencs to `ynames_lookup` table

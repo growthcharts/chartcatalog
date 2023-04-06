@@ -30,7 +30,7 @@ There is no release on CRAN.
 
 ## Example 1: Available charts in JAMES
 
-The current catalogs holds 392 Dutch charts.
+The current catalogs holds 440 Dutch charts.
 
 ``` r
 library(chartcatalog)
@@ -50,7 +50,7 @@ head(ynames_lookup)
 #> 5 function(x) x * 12 function(y) y  tr
 #> 6 function(x) x * 12 function(y) y  tr
 length(unique(ynames_lookup$chartcode))
-#> [1] 392
+#> [1] 440
 ```
 
 The charts are subdivided into three groups:
@@ -69,7 +69,7 @@ with(ynames_lookup, table(chartgrp, yname))
 #> chartgrp  bmi dsc hdc hgt wfh wgt
 #>   nl2010   20   4  56  64  40  24
 #>   preterm   0  48  48  96   0  96
-#>   who       0   4   4   8   4   4
+#>   who       0  52   4   8   4   4
 ```
 
 ## Example 2: Chartcode creating and parsing
@@ -197,3 +197,5 @@ tb@info
 #> Slot "date":
 #> [1] "2021-01-27 16:33:21 CET"
 ```
+
+YY
