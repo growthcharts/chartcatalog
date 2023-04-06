@@ -12,17 +12,18 @@
 #'@param side Either \code{'front'}, \code{'back'}, \code{'-hdc'}, \code{'both'},
 #' \code{'hgt'}, \code{'wgt'}, \code{'hdc'}, \code{'bmi'}, \code{'wfh'} or
 #' \code{'dsc'}.
-#'@param week A number between 25 and 36 gestational age. Only used for preterm charts.
+#'@param week A number between 25 and 36 gestational age (preterm) or 40 for
+#'term (default).
 #'@param language Language: \code{'dutch'} or \code{'english'}
 #'@param version Version number. Default is to have no version number.
 #'@export
-create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who', 'whopreterm'),
+create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who'),
                           etn = c('nl', 'tu', 'ma', 'hs', 'ds'),
                           sex = c('male', 'female'),
                           agegrp = c('0-15m', '0-4y', '1-21y', '0-21y', '0-4ya'),
                           side = c('front', 'back', '-hdc', 'both', 'hgt',
                                    'wgt', 'hdc', 'bmi', 'wfh', 'dsc'),
-                          week = 32,
+                          week = 40,
                           language = c('dutch','english'),
                           version = '')
 {
@@ -40,8 +41,7 @@ create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who', 'whopreter
   c1 <- switch(chartgrp,
                'preterm' = 'P',
                'nl2010' = toupper(substring(etn, 1, 1)),
-               'who' = 'W',
-               'whopreterm' = 'W'
+               'who' = 'W'
   )
 
   ## c2 sex: J, M
@@ -99,10 +99,17 @@ create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who', 'whopreter
   c5 <- switch(language,
                'dutch' = 'N',
                'english' = 'E')
-  c5 <- ifelse(c1 == 'P' || chartgrp == 'whopreterm', c5, '')
+  c5 <- ifelse(c1 == 'P', c5, '')
 
-  ## c6: week: '', 25-36 for preterms
-  c6 <- ifelse(c1 == 'P' || chartgrp == 'whopreterm', week, '')
+  # We always use language for WHO D-score charts
+  c5 <- ifelse(c1 == 'W' && c4 == 'D', c5, '')
+
+  ## c6: week: '' for most chart,
+  ## 25-36 for preterms (P)
+  c6 <- ifelse(c1 == 'P', week, '')
+
+  # We always use week for WHO D-score charts
+  c6 <- ifelse(c1 == 'W' && c4 == 'D', week, '')
 
   ## c7: version: 3
   c7 <- version

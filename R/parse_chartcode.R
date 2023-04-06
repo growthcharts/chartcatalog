@@ -26,10 +26,6 @@ parse_chartcode <- function(chartcode = NULL) {
   if (is.null(chartcode)) return(NULL)
   chartcode <- chartcode[1]
 
-  # preterm chart?
-  week <- substr(chartcode, 6, 7)
-  preterm <- ifelse(week == "", FALSE, TRUE)
-
   # 1: population group
   population <- switch(EXPR = substr(chartcode, 1, 1),
                        'N' = 'NL',
@@ -40,16 +36,14 @@ parse_chartcode <- function(chartcode = NULL) {
                        'H' = 'HS',
                        'D' = 'DS',
                        'W' = ifelse(substr(chartcode, 2, 2) == 'J', 'WHOblue', 'WHOpink'),
-                       NULL
-  )
+                       NULL)
 
   # 2: sex
   sex <- switch(EXPR = substr(chartcode, 2, 2),
                 'J' = 'male',
                 'M' = 'female',
                 'U' = 'undifferentiated',
-                NULL
-  )
+                NULL)
 
   # 3: design
   design <- substr(chartcode, 3, 3)  # A-E, S
@@ -69,15 +63,13 @@ parse_chartcode <- function(chartcode = NULL) {
                  NULL)
 
   # 5: language
-  language <- 'dutch'
-  if (preterm)
-    language <- switch(EXPR = substr(chartcode, 5, 5),
-                       'N' = "dutch",
-                       'E' = "english",
-                       NULL)
+  language <- switch(EXPR = substr(chartcode, 5, 5),
+                     'N' = "dutch",
+                     'E' = "english",
+                     "dutch")
 
   # 6: week
-  # See above
+  week <- substr(chartcode, 6, 7)
 
   return(list(population = population,
               sex = sex,

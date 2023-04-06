@@ -5,12 +5,12 @@
 \title{Construct a single chart code from user input}
 \usage{
 create_chartcode(
-  chartgrp = c("nl2010", "preterm", "who", "whopreterm"),
+  chartgrp = c("nl2010", "preterm", "who"),
   etn = c("nl", "tu", "ma", "hs", "ds"),
   sex = c("male", "female"),
   agegrp = c("0-15m", "0-4y", "1-21y", "0-21y", "0-4ya"),
   side = c("front", "back", "-hdc", "both", "hgt", "wgt", "hdc", "bmi", "wfh", "dsc"),
-  week = 32,
+  week = 40,
   language = c("dutch", "english"),
   version = ""
 )
@@ -32,7 +32,8 @@ for age (design E).}
 \code{'hgt'}, \code{'wgt'}, \code{'hdc'}, \code{'bmi'}, \code{'wfh'} or
 \code{'dsc'}.}
 
-\item{week}{A number between 25 and 36 gestational age. Only used for preterm charts.}
+\item{week}{A number between 25 and 36 gestational age (preterm) or 40 for
+term (default).}
 
 \item{language}{Language: \code{'dutch'} or \code{'english'}}
 
