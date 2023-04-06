@@ -54,12 +54,12 @@
 
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_chartcode</span><span class="op">(</span></span>
-<span>  chartgrp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"nl2010"</span>, <span class="st">"preterm"</span>, <span class="st">"who"</span>, <span class="st">"whopreterm"</span><span class="op">)</span>,</span>
+<span>  chartgrp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"nl2010"</span>, <span class="st">"preterm"</span>, <span class="st">"who"</span><span class="op">)</span>,</span>
 <span>  etn <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"nl"</span>, <span class="st">"tu"</span>, <span class="st">"ma"</span>, <span class="st">"hs"</span>, <span class="st">"ds"</span><span class="op">)</span>,</span>
 <span>  sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span><span class="op">)</span>,</span>
 <span>  agegrp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"0-15m"</span>, <span class="st">"0-4y"</span>, <span class="st">"1-21y"</span>, <span class="st">"0-21y"</span>, <span class="st">"0-4ya"</span><span class="op">)</span>,</span>
 <span>  side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"front"</span>, <span class="st">"back"</span>, <span class="st">"-hdc"</span>, <span class="st">"both"</span>, <span class="st">"hgt"</span>, <span class="st">"wgt"</span>, <span class="st">"hdc"</span>, <span class="st">"bmi"</span>, <span class="st">"wfh"</span>, <span class="st">"dsc"</span><span class="op">)</span>,</span>
-<span>  week <span class="op">=</span> <span class="fl">32</span>,</span>
+<span>  week <span class="op">=</span> <span class="fl">40</span>,</span>
 <span>  language <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dutch"</span>, <span class="st">"english"</span><span class="op">)</span>,</span>
 <span>  version <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -94,7 +94,8 @@ for age (design E).</p></dd>
 
 
 <dt>week</dt>
-<dd><p>A number between 25 and 36 gestational age. Only used for preterm charts.</p></dd>
+<dd><p>A number between 25 and 36 gestational age (preterm) or 40 for
+term (default).</p></dd>
 
 
 <dt>language</dt>
