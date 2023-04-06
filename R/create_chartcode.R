@@ -96,20 +96,16 @@ create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who'),
   if (c1 == 'W' & any(c4 %in% c('B', 'C', 'X'))) c4 <- 'A'
 
   ## c5 language, only two versions for preterms
+  # We always use language for WHO D-score charts
   c5 <- switch(language,
                'dutch' = 'N',
                'english' = 'E')
-  c5 <- ifelse(c1 == 'P', c5, '')
+  c5 <- ifelse(c1 == 'P' || (c1 == 'W' && c4 == 'D'), c5, '')
 
-  # We always use language for WHO D-score charts
-  c5 <- ifelse(c1 == 'W' && c4 == 'D', c5, '')
-
-  ## c6: week: '' for most chart,
+  ## c6: week: '' for most charts,
   ## 25-36 for preterms (P)
-  c6 <- ifelse(c1 == 'P', week, '')
-
   # We always use week for WHO D-score charts
-  c6 <- ifelse(c1 == 'W' && c4 == 'D', week, '')
+  c6 <- ifelse(c1 == 'P' || (c1 == 'W' && c4 == 'D'), week, '')
 
   ## c7: version: 3
   c7 <- version
