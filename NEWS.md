@@ -1,3 +1,7 @@
+# chartcatalog 1.13.2
+
+* Sets the default D-score references in all charts to the GSED Phase 1 references
+
 # chartcatalog 1.13.1
 
 * Resolves an error in the logic of `create_chartcode()`
