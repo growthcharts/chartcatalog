@@ -130,8 +130,10 @@ get_reference_calltext <- function(chartgrp, chartcode, yname) {
     if (p$population != "HS" && p$sex == "female" && yname == "wfh")
       return(paste0('clopus::', 'nl1980', '[["', 'nl1980.fwfhNLA', '"]]'))
 
-    if (p$population == "NL" && yname == "dsc")
-      return(paste0('clopus::', 'dscore', '[["', 'nl2014.mdsc40', '"]]'))
+    if (p$population == "NL" && p$sex == "male" && yname == "dsc")
+      return(paste0('clopus::', 'dscore', '[["', 'ph2023.mdsc40', '"]]'))
+    if (p$population == "NL" && p$sex == "female" && yname == "dsc")
+      return(paste0('clopus::', 'dscore', '[["', 'ph2023.fdsc40', '"]]'))
 
     if (p$population == "TU" && p$sex == "male" && yname == "hdc")
       return(paste0('clopus::', 'nl1997', '[["', 'nl1997.mhdcTU', '"]]'))
@@ -195,14 +197,16 @@ get_reference_calltext <- function(chartgrp, chartcode, yname) {
       return(paste0('clopus::', 'preterm', '[["', 'pt2012a.mhgt', p$week, '"]]'))
     if (p$sex == "male" && yname == "wgt")
       return(paste0('clopus::', 'preterm', '[["', 'pt2012a.mwgt', p$week, '"]]'))
+    if (p$sex == "male" && yname == "dsc")
+      return(paste0('clopus::', 'dscore', '[["', 'ph2023.mdsc', p$week, '"]]'))
     if (p$sex == "female" && yname == "hdc")
       return(paste0('clopus::', 'preterm', '[["', 'pt2012b.fhdc', p$week, '"]]'))
     if (p$sex == "female" && yname == "hgt")
       return(paste0('clopus::', 'preterm', '[["', 'pt2012a.fhgt', p$week, '"]]'))
     if (p$sex == "female" && yname == "wgt")
       return(paste0('clopus::', 'preterm', '[["', 'pt2012a.fwgt', p$week, '"]]'))
-    if (yname == "dsc")
-      return(paste0('clopus::', 'dscore', '[["', 'nl2014.mdsc', p$week, '"]]'))
+    if (p$sex == "female" && yname == "dsc")
+      return(paste0('clopus::', 'dscore', '[["', 'ph2023.fdsc', p$week, '"]]'))
     return(NA_character_)
   }
 
