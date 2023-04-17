@@ -212,9 +212,7 @@ library(dplyr)
 #> The following objects are masked from 'package:base':
 #> 
 #>     intersect, setdiff, setequal, union
-refcode <- ynames_lookup %>% 
-  filter(chartcode == "PJEAN26" & yname == "wgt") %>% 
-  pull(refcode)
+refcode <- get_refcode("PJEAN26", "wgt")
 ref <- load_reference(refcode, pkg = "nlreferences", verbose = TRUE)
 head(ref)
 #> # A tibble: 6 × 4
@@ -226,21 +224,4 @@ head(ref)
 #> 4 0.0082  1.07 0.95  0.207
 #> 5 0.011   1.07 0.943 0.208
 #> 6 0.0137  1.06 0.937 0.208
-attr(ref, "study")
-#>                                                                                                                                                                                                                                                           name 
-#>                                                                                                                                                                                                                                                           "nl" 
-#>                                                                                                                                                                                                                                                           year 
-#>                                                                                                                                                                                                                                                         "2012" 
-#>                                                                                                                                                                                                                                                          yname 
-#>                                                                                                                                                                                                                                                          "wgt" 
-#>                                                                                                                                                                                                                                                            sex 
-#>                                                                                                                                                                                                                                                         "male" 
-#>                                                                                                                                                                                                                                                            sub 
-#>                                                                                                                                                                                                                                                           "26" 
-#>                                                                                                                                                                                                                                                   distribution 
-#>                                                                                                                                                                                                                                                          "LMS" 
-#>                                                                                                                                                                                                                                                       citation 
-#>                                                                                                                                                                                                                                          "Bocca-Tjeertes 2012" 
-#>                                                                                                                                                                                                                                                    publication 
-#> "Bocca-Tjeertes IFA, van Buuren S, Bos AF, Kerstens JM, ten Vergert EM & Reijneveld SA (2012) Growth of Preterm and Full-term Children Aged 0-4 years: Integrating Median Growth and Variability in Growth Charts. Journal of Pediatrics, 161(3), 460-465.e1."
 ```

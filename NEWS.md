@@ -1,6 +1,7 @@
 # chartcatalog 1.13.3
 
 * Adds support for the `centile::load_reference()` function through the `refcode` field in `ynames_lookup`
+* Adds a function `get_refcode()` to find the `refcode` for a given `chartcode` and `yname` 
 
 # chartcatalog 1.13.2
 
