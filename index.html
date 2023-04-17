@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chartcatalog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.13.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.13.3</span>
       </span>
     </div>
 
@@ -102,13 +102,13 @@
 <span><span class="co">#&gt; 4   nl2010      DJAH   hgt   1  A clopus::nl2009[["nl2009.mhgtDS"]]</span></span>
 <span><span class="co">#&gt; 5   nl2010      DJAO   hdc   1  A clopus::nl2009[["nl2009.mhdcDS"]]</span></span>
 <span><span class="co">#&gt; 6   nl2010      DJAW   wgt   1  A   clopus::nl1980[["nl1980.mwgt"]]</span></span>
-<span><span class="co">#&gt;                   tx            ty seq</span></span>
-<span><span class="co">#&gt; 1 function(x) x * 12 function(y) y  tr</span></span>
-<span><span class="co">#&gt; 2 function(x) x * 12 function(y) y  tr</span></span>
-<span><span class="co">#&gt; 3 function(x) x * 12 function(y) y  tr</span></span>
-<span><span class="co">#&gt; 4 function(x) x * 12 function(y) y  tr</span></span>
-<span><span class="co">#&gt; 5 function(x) x * 12 function(y) y  tr</span></span>
-<span><span class="co">#&gt; 6 function(x) x * 12 function(y) y  tr</span></span>
+<span><span class="co">#&gt;                   tx            ty seq             refcode</span></span>
+<span><span class="co">#&gt; 1 function(x) x * 12 function(y) y  tr nl_2009_hdc_male_ds</span></span>
+<span><span class="co">#&gt; 2 function(x) x * 12 function(y) y  tr nl_2009_hgt_male_ds</span></span>
+<span><span class="co">#&gt; 3 function(x) x * 12 function(y) y  tr   nl_1980_wgt_male_</span></span>
+<span><span class="co">#&gt; 4 function(x) x * 12 function(y) y  tr nl_2009_hgt_male_ds</span></span>
+<span><span class="co">#&gt; 5 function(x) x * 12 function(y) y  tr nl_2009_hdc_male_ds</span></span>
+<span><span class="co">#&gt; 6 function(x) x * 12 function(y) y  tr   nl_1980_wgt_male_</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartcode</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 440</span></span></code></pre></div>
 <p>The charts are subdivided into three groups:</p>
@@ -229,7 +229,53 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Slot "date":</span></span>
 <span><span class="co">#&gt; [1] "2021-01-27 16:33:21 CET"</span></span></code></pre></div>
-<p>YY</p>
+</div>
+<div class="section level2">
+<h2 id="added-support-for-nlreferences-package">Added support for <code>nlreferences</code> package<a class="anchor" aria-label="anchor" href="#added-support-for-nlreferences-package"></a>
+</h2>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">centile</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">nlreferences</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span><span class="va">refcode</span> <span class="op">&lt;-</span> <span class="va">ynames_lookup</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">chartcode</span> <span class="op">==</span> <span class="st">"PJEAN26"</span> <span class="op">&amp;</span> <span class="va">yname</span> <span class="op">==</span> <span class="st">"wgt"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">pull</span><span class="op">(</span><span class="va">refcode</span><span class="op">)</span></span>
+<span><span class="va">ref</span> <span class="op">&lt;-</span> <span class="fu">load_reference</span><span class="op">(</span><span class="va">refcode</span>, pkg <span class="op">=</span> <span class="st">"nlreferences"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ref</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 4</span></span>
+<span><span class="co">#&gt;        x     L     M     S</span></span>
+<span><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 0       1.09 0.985 0.206</span></span>
+<span><span class="co">#&gt; 2 0.0027  1.08 0.971 0.206</span></span>
+<span><span class="co">#&gt; 3 0.0055  1.08 0.96  0.207</span></span>
+<span><span class="co">#&gt; 4 0.0082  1.07 0.95  0.207</span></span>
+<span><span class="co">#&gt; 5 0.011   1.07 0.943 0.208</span></span>
+<span><span class="co">#&gt; 6 0.0137  1.06 0.937 0.208</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">ref</span>, <span class="st">"study"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                           name </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                           "nl" </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                           year </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                         "2012" </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                          yname </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                          "wgt" </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                            sex </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                         "male" </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                            sub </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                           "26" </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                   distribution </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                          "LMS" </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                       citation </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                          "Bocca-Tjeertes 2012" </span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                                                    publication </span></span>
+<span><span class="co">#&gt; "Bocca-Tjeertes IFA, van Buuren S, Bos AF, Kerstens JM, ten Vergert EM &amp; Reijneveld SA (2012) Growth of Preterm and Full-term Children Aged 0-4 years: Integrating Median Growth and Variability in Growth Charts. Journal of Pediatrics, 161(3), 460-465.e1."</span></span></code></pre></div>
 </div>
 </div>
   </div>
