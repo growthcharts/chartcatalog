@@ -22,5 +22,7 @@
 #' \item{seq}{Transformation sequence: either \code{"tr"} (first transform,
 #' then calculate reference) or either \code{"rt"} (first calculate reference,
 #' then transform).}
+#' \item{refcode}{A string coding the reference name recognised by
+#' \code{centile::load_reference()}.}
 #' }
 "ynames_lookup"

@@ -328,6 +328,22 @@ ynames_lookup$seq[ynames_lookup$chartcode == "NMEW" &
 ynames_lookup$seq[ynames_lookup$chartcode == "NJEW" &
                     ynames_lookup$yname == "wgt"] <- "rt"
 
+# add references using names from centile and nlreferences packages
+conversion <- read.table(file = "data-raw/data/conversion.txt",
+                         header = TRUE, sep = "\t")
+refs <- ynames_lookup$reference
+p <- strsplit(refs, c('::'))
+p2 <- matrix(unlist(p), ncol = 2, byrow = TRUE)[, 2]
+p3 <- strsplit(p2, '\"')
+p4 <- matrix(unlist(p3), ncol = 3, byrow = TRUE)
+# p5 <- strsplit(p4[, 2], '.', fixed = TRUE)
+# p6 <- matrix(unlist(p5), ncol = 2, byrow = TRUE)
+from <- data.frame(
+  lib = strtrim(p4[, 1], nchar(p4[, 1]) - 2),
+  clopus = p4[, 2]
+)
+ynames_lookup$refcode <- dplyr::left_join(from, conversion, by = c("lib", "clopus"))$centile
+
+
 # save
 usethis::use_data(ynames_lookup, overwrite = TRUE)
-
