@@ -3,6 +3,7 @@
 export(create_chartcode)
 export(get_breakpoints)
 export(get_chartgrp)
+export(get_refcode)
 export(get_reference)
 export(get_reference_call)
 export(get_seq)
