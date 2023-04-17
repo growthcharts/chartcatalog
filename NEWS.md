@@ -1,3 +1,7 @@
+# chartcatalog 1.13.3
+
+* Adds support for the `centile::load_reference()` function through the `refcode` field in `ynames_lookup`
+
 # chartcatalog 1.13.2
 
 * Sets the default D-score references in all charts to the GSED Phase 1 references

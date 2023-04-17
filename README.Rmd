@@ -110,4 +110,17 @@ More details can be found in the `info` slot:
 tb@info
 ```
 
-YY
+## Added support for `nlreferences` package
+
+```{r}
+library(centile)
+library(nlreferences)
+library(dplyr)
+refcode <- ynames_lookup %>% 
+  filter(chartcode == "PJEAN26" & yname == "wgt") %>% 
+  pull(refcode)
+ref <- load_reference(refcode, pkg = "nlreferences", verbose = TRUE)
+head(ref)
+attr(ref, "study")
+```
+

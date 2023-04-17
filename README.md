@@ -42,13 +42,13 @@ head(ynames_lookup)
 #> 4   nl2010      DJAH   hgt   1  A clopus::nl2009[["nl2009.mhgtDS"]]
 #> 5   nl2010      DJAO   hdc   1  A clopus::nl2009[["nl2009.mhdcDS"]]
 #> 6   nl2010      DJAW   wgt   1  A   clopus::nl1980[["nl1980.mwgt"]]
-#>                   tx            ty seq
-#> 1 function(x) x * 12 function(y) y  tr
-#> 2 function(x) x * 12 function(y) y  tr
-#> 3 function(x) x * 12 function(y) y  tr
-#> 4 function(x) x * 12 function(y) y  tr
-#> 5 function(x) x * 12 function(y) y  tr
-#> 6 function(x) x * 12 function(y) y  tr
+#>                   tx            ty seq             refcode
+#> 1 function(x) x * 12 function(y) y  tr nl_2009_hdc_male_ds
+#> 2 function(x) x * 12 function(y) y  tr nl_2009_hgt_male_ds
+#> 3 function(x) x * 12 function(y) y  tr   nl_1980_wgt_male_
+#> 4 function(x) x * 12 function(y) y  tr nl_2009_hgt_male_ds
+#> 5 function(x) x * 12 function(y) y  tr nl_2009_hdc_male_ds
+#> 6 function(x) x * 12 function(y) y  tr   nl_1980_wgt_male_
 length(unique(ynames_lookup$chartcode))
 #> [1] 440
 ```
@@ -198,4 +198,49 @@ tb@info
 #> [1] "2021-01-27 16:33:21 CET"
 ```
 
-YY
+## Added support for `nlreferences` package
+
+``` r
+library(centile)
+library(nlreferences)
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+refcode <- ynames_lookup %>% 
+  filter(chartcode == "PJEAN26" & yname == "wgt") %>% 
+  pull(refcode)
+ref <- load_reference(refcode, pkg = "nlreferences", verbose = TRUE)
+head(ref)
+#> # A tibble: 6 × 4
+#>        x     L     M     S
+#>    <dbl> <dbl> <dbl> <dbl>
+#> 1 0       1.09 0.985 0.206
+#> 2 0.0027  1.08 0.971 0.206
+#> 3 0.0055  1.08 0.96  0.207
+#> 4 0.0082  1.07 0.95  0.207
+#> 5 0.011   1.07 0.943 0.208
+#> 6 0.0137  1.06 0.937 0.208
+attr(ref, "study")
+#>                                                                                                                                                                                                                                                           name 
+#>                                                                                                                                                                                                                                                           "nl" 
+#>                                                                                                                                                                                                                                                           year 
+#>                                                                                                                                                                                                                                                         "2012" 
+#>                                                                                                                                                                                                                                                          yname 
+#>                                                                                                                                                                                                                                                          "wgt" 
+#>                                                                                                                                                                                                                                                            sex 
+#>                                                                                                                                                                                                                                                         "male" 
+#>                                                                                                                                                                                                                                                            sub 
+#>                                                                                                                                                                                                                                                           "26" 
+#>                                                                                                                                                                                                                                                   distribution 
+#>                                                                                                                                                                                                                                                          "LMS" 
+#>                                                                                                                                                                                                                                                       citation 
+#>                                                                                                                                                                                                                                          "Bocca-Tjeertes 2012" 
+#>                                                                                                                                                                                                                                                    publication 
+#> "Bocca-Tjeertes IFA, van Buuren S, Bos AF, Kerstens JM, ten Vergert EM & Reijneveld SA (2012) Growth of Preterm and Full-term Children Aged 0-4 years: Integrating Median Growth and Variability in Growth Charts. Journal of Pediatrics, 161(3), 460-465.e1."
+```
