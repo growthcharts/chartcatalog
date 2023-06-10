@@ -5,7 +5,7 @@
 \title{Construct a single chart code from user input}
 \usage{
 create_chartcode(
-  chartgrp = c("nl2010", "preterm", "who"),
+  chartgrp = c("nl2010", "preterm", "who", "gsed1", "gsed1pt"),
   etn = c("nl", "tu", "ma", "hs", "ds"),
   sex = c("male", "female"),
   agegrp = c("0-15m", "0-4y", "1-21y", "0-21y", "0-4ya"),
@@ -16,8 +16,8 @@ create_chartcode(
 )
 }
 \arguments{
-\item{chartgrp}{The chart group: \code{'nl2010'}, \code{'preterm'}, \code{'who'}
-or \code{'whopreterm'}.}
+\item{chartgrp}{The chart group: \code{'nl2010'}, \code{'preterm'}, \code{'who'},
+\code{'gsed1'} or \code{'gsed1pt'}.}
 
 \item{etn}{Either \code{'nl'}, \code{'tu'}, \code{'ma'}, \code{'hs'} or \code{'ds'}.
 May also be abbreviates to a single letter.}

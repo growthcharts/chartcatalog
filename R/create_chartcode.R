@@ -1,8 +1,8 @@
 #' Construct a single chart code from user input
 #'
 #'@aliases create_chartcode
-#'@param chartgrp The chart group: \code{'nl2010'}, \code{'preterm'}, \code{'who'}
-#' or \code{'whopreterm'}.
+#'@param chartgrp The chart group: \code{'nl2010'}, \code{'preterm'}, \code{'who'},
+#'\code{'gsed1'} or \code{'gsed1pt'}.
 #'@param etn Either \code{'nl'}, \code{'tu'}, \code{'ma'}, \code{'hs'} or \code{'ds'}.
 #'May also be abbreviates to a single letter.
 #'@param sex Either \code{'male'} or \code{'female'}
@@ -17,7 +17,7 @@
 #'@param language Language: \code{'dutch'} or \code{'english'}
 #'@param version Version number. Default is to have no version number.
 #'@export
-create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who'),
+create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who', 'gsed1', 'gsed1pt'),
                           etn = c('nl', 'tu', 'ma', 'hs', 'ds'),
                           sex = c('male', 'female'),
                           agegrp = c('0-15m', '0-4y', '1-21y', '0-21y', '0-4ya'),
@@ -41,7 +41,9 @@ create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who'),
   c1 <- switch(chartgrp,
                'preterm' = 'P',
                'nl2010' = toupper(substring(etn, 1, 1)),
-               'who' = 'W'
+               'who' = 'W',
+               'gsed1' = 'W',
+               'gsed1pt' = 'W'
   )
 
   ## c2 sex: J, M

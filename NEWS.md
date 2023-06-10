@@ -1,3 +1,7 @@
+# chartcatalog 1.14.0
+
+* Adds `chartgrp` values `"gsed1"` and `"gsed1pt"` to support GSED Phase 1 references for the D-score
+
 # chartcatalog 1.13.3
 
 * Adds support for the `centile::load_reference()` function through the `refcode` field in `ynames_lookup`
