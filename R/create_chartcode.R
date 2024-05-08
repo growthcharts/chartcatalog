@@ -34,6 +34,9 @@ create_chartcode <- function(chartgrp = c('nl2010', 'preterm', 'who', 'gsed1', '
   side <- match.arg(side)
   language <- match.arg(language)
 
+  # group terms into week 40
+  week <- ifelse(week > 36, 40, week)
+
   # use design E if wgt is asked for 0-ya
   if (agegrp == "0-4y" & side == "wgt") agegrp <- "0-4ya"
 
