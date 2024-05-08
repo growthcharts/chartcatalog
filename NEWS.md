@@ -1,3 +1,7 @@
+# chartcatalog 1.15.0
+
+* Group terms into week 40 in `create_chartcode()`
+
 # chartcatalog 1.14.0
 
 * Adds `chartgrp` values `"gsed1"` and `"gsed1pt"` to support GSED Phase 1 references for the D-score
