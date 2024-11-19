@@ -1,3 +1,7 @@
+# chartcatalog 1.16.0
+
+* Update to roxygen 7.3.2
+
 # chartcatalog 1.15.0
 
 * Group terms into week 40 in `create_chartcode()`
