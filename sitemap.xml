@@ -1,57 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/create_chartcode.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_breakpoints.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_chartgrp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_refcode.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_reference.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_seq.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_tx.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_ty.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_viewport.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_ynames.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_chartcode.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ynames_lookup.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/create_chartcode.html</loc></url>
+<url><loc>/reference/get_breakpoints.html</loc></url>
+<url><loc>/reference/get_chartgrp.html</loc></url>
+<url><loc>/reference/get_refcode.html</loc></url>
+<url><loc>/reference/get_reference.html</loc></url>
+<url><loc>/reference/get_seq.html</loc></url>
+<url><loc>/reference/get_tx.html</loc></url>
+<url><loc>/reference/get_ty.html</loc></url>
+<url><loc>/reference/get_viewport.html</loc></url>
+<url><loc>/reference/get_ynames.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/parse_chartcode.html</loc></url>
+<url><loc>/reference/ynames_lookup.html</loc></url>
 </urlset>
+

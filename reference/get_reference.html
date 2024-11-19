@@ -4,7 +4,7 @@ Obtain the call to a reference used on a chart"><!-- mathjax --><script src="htt
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -18,7 +18,7 @@ Obtain the call to a reference used on a chart"><!-- mathjax --><script src="htt
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">chartcatalog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.15.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.16.0</span>
       </span>
     </div>
 
@@ -32,20 +32,20 @@ Obtain the call to a reference used on a chart"><!-- mathjax --><script src="htt
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/growthcharts/chartcatalog/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Obtain the growth reference behind the chart</h1>
-    <small class="dont-index">Source: <a href="https://github.com/growthcharts/chartcatalog/blob/HEAD/R/get_reference.R" class="external-link"><code>R/get_reference.R</code></a>, <a href="https://github.com/growthcharts/chartcatalog/blob/HEAD/R/get_reference_call.R" class="external-link"><code>R/get_reference_call.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/growthcharts/chartcatalog/blob/master/R/get_reference.R" class="external-link"><code>R/get_reference.R</code></a>, <a href="https://github.com/growthcharts/chartcatalog/blob/master/R/get_reference_call.R" class="external-link"><code>R/get_reference_call.R</code></a></small>
     <div class="hidden name"><code>get_reference.Rd</code></div>
     </div>
 
@@ -62,26 +62,24 @@ Obtain the call to a reference used on a chart"><!-- mathjax --><script src="htt
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>chartcode</dt>
+
+
+<dl><dt id="arg-chartcode">chartcode<a class="anchor" aria-label="anchor" href="#arg-chartcode"></a></dt>
 <dd><p>The chart code, returned by <code><a href="create_chartcode.html">create_chartcode()</a></code></p></dd>
 
 
-<dt>yname</dt>
+<dt id="arg-yname">yname<a class="anchor" aria-label="anchor" href="#arg-yname"></a></dt>
 <dd><p>Name of the response variable</p></dd>
 
 
-<dt>chartgrp</dt>
+<dt id="arg-chartgrp">chartgrp<a class="anchor" aria-label="anchor" href="#arg-chartgrp"></a></dt>
 <dd><p>The chart group. If not specified, it is calculated
 automatically.</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p><code>get_reference()</code> returns an object of class <code>reference</code>.</p>
-
-
+    <p><code>get_reference()</code> returns an object of class <code>reference</code>.</p>
 <p><code>get_reference_call()</code> returns a string with the call. Your
 library must contain the <code>clopus</code> package to execute the call by
 <code>eval(parse(text = call))</code>.</p>
@@ -93,9 +91,9 @@ library must contain the <code>clopus</code> package to execute the call by
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="va">ref</span> <span class="op">&lt;-</span> <span class="fu">get_reference</span><span class="op">(</span><span class="st">"NJAA"</span>, <span class="st">"hgt"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="fu">get_reference_call</span><span class="op">(</span><span class="st">"NJAA"</span>, <span class="st">"hgt"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "clopus::nl2009[[\"nl2009.mhgtNL\"]]"</span>
 </code></pre></div>
@@ -112,15 +110,15 @@ library must contain the <code>clopus</code> package to execute the call by
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 
