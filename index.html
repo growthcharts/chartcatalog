@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">chartcatalog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.16.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.17.0</span>
       </span>
     </div>
 
@@ -101,13 +101,20 @@
 <span><span class="co">#&gt; 4   nl2010      DJAH   hgt   1  A clopus::nl2009[["nl2009.mhgtDS"]]</span></span>
 <span><span class="co">#&gt; 5   nl2010      DJAO   hdc   1  A clopus::nl2009[["nl2009.mhdcDS"]]</span></span>
 <span><span class="co">#&gt; 6   nl2010      DJAW   wgt   1  A   clopus::nl1980[["nl1980.mwgt"]]</span></span>
-<span><span class="co">#&gt;                   tx            ty seq             refcode</span></span>
-<span><span class="co">#&gt; 1 function(x) x * 12 function(y) y  tr nl_2009_hdc_male_ds</span></span>
-<span><span class="co">#&gt; 2 function(x) x * 12 function(y) y  tr nl_2009_hgt_male_ds</span></span>
-<span><span class="co">#&gt; 3 function(x) x * 12 function(y) y  tr   nl_1980_wgt_male_</span></span>
-<span><span class="co">#&gt; 4 function(x) x * 12 function(y) y  tr nl_2009_hgt_male_ds</span></span>
-<span><span class="co">#&gt; 5 function(x) x * 12 function(y) y  tr nl_2009_hdc_male_ds</span></span>
-<span><span class="co">#&gt; 6 function(x) x * 12 function(y) y  tr   nl_1980_wgt_male_</span></span>
+<span><span class="co">#&gt;                   tx             inv_tx            ty        inv_ty seq</span></span>
+<span><span class="co">#&gt; 1 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr</span></span>
+<span><span class="co">#&gt; 2 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr</span></span>
+<span><span class="co">#&gt; 3 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr</span></span>
+<span><span class="co">#&gt; 4 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr</span></span>
+<span><span class="co">#&gt; 5 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr</span></span>
+<span><span class="co">#&gt; 6 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr</span></span>
+<span><span class="co">#&gt;               refcode</span></span>
+<span><span class="co">#&gt; 1 nl_2009_hdc_male_ds</span></span>
+<span><span class="co">#&gt; 2 nl_2009_hgt_male_ds</span></span>
+<span><span class="co">#&gt; 3   nl_1980_wgt_male_</span></span>
+<span><span class="co">#&gt; 4 nl_2009_hgt_male_ds</span></span>
+<span><span class="co">#&gt; 5 nl_2009_hdc_male_ds</span></span>
+<span><span class="co">#&gt; 6   nl_1980_wgt_male_</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">ynames_lookup</span><span class="op">$</span><span class="va">chartcode</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 440</span></span></code></pre></div>
 <p>The charts are subdivided into three groups:</p>
