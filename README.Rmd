@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 The `chartcatalog` package contains tools to
 
-- Lookup available charts in JAMES;
+- Lookup available charts in JAMES; 
 - Create and parse chart codes;
 - Find outcomes, chart group and growth reference;
 - Obtain viewport number and transformation functions;

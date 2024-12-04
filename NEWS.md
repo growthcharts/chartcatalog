@@ -1,3 +1,7 @@
+# chartcatalog 1.17.0
+
+* Extends to `ynames_lookup` table with inverse transformation for `x` and `y`
+
 # chartcatalog 1.16.0
 
 * Update to roxygen 7.3.2

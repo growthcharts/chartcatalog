@@ -42,13 +42,20 @@ head(ynames_lookup)
 #> 4   nl2010      DJAH   hgt   1  A clopus::nl2009[["nl2009.mhgtDS"]]
 #> 5   nl2010      DJAO   hdc   1  A clopus::nl2009[["nl2009.mhdcDS"]]
 #> 6   nl2010      DJAW   wgt   1  A   clopus::nl1980[["nl1980.mwgt"]]
-#>                   tx            ty seq             refcode
-#> 1 function(x) x * 12 function(y) y  tr nl_2009_hdc_male_ds
-#> 2 function(x) x * 12 function(y) y  tr nl_2009_hgt_male_ds
-#> 3 function(x) x * 12 function(y) y  tr   nl_1980_wgt_male_
-#> 4 function(x) x * 12 function(y) y  tr nl_2009_hgt_male_ds
-#> 5 function(x) x * 12 function(y) y  tr nl_2009_hdc_male_ds
-#> 6 function(x) x * 12 function(y) y  tr   nl_1980_wgt_male_
+#>                   tx             inv_tx            ty        inv_ty seq
+#> 1 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr
+#> 2 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr
+#> 3 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr
+#> 4 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr
+#> 5 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr
+#> 6 function(x) x * 12 function(x) x / 12 function(y) y function(y) y  tr
+#>               refcode
+#> 1 nl_2009_hdc_male_ds
+#> 2 nl_2009_hgt_male_ds
+#> 3   nl_1980_wgt_male_
+#> 4 nl_2009_hgt_male_ds
+#> 5 nl_2009_hdc_male_ds
+#> 6   nl_1980_wgt_male_
 length(unique(ynames_lookup$chartcode))
 #> [1] 440
 ```
