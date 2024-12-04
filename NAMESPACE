@@ -3,6 +3,8 @@
 export(create_chartcode)
 export(get_breakpoints)
 export(get_chartgrp)
+export(get_inverse_tx)
+export(get_inverse_ty)
 export(get_refcode)
 export(get_reference)
 export(get_reference_call)
