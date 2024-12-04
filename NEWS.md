@@ -1,6 +1,10 @@
+# chartcatalog 1.17.1
+
+* Adds getters for inverse transformations of `x` and `y`
+
 # chartcatalog 1.17.0
 
-* Extends to `ynames_lookup` table with inverse transformation for `x` and `y`
+* Extends to `ynames_lookup` table with inverse transformation of `x` and `y`
 
 # chartcatalog 1.16.0
 
