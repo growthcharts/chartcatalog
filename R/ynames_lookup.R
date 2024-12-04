@@ -18,7 +18,11 @@
 #' The \code{get_reference()} function actually pulls out the relevant
 #' references from \code{clopus}}
 #' \item{tx}{A string coding the transformation function for the x variable}
+#' \item{inv_tx}{A string coding the inverse transformation function for
+#' the x variable}
 #' \item{ty}{A string coding the transformation function for the y variable}
+#' \item{inv_ty}{A string coding the inverse transformation function for
+#' the y variable}
 #' \item{seq}{Transformation sequence: either \code{"tr"} (first transform,
 #' then calculate reference) or either \code{"rt"} (first calculate reference,
 #' then transform).}

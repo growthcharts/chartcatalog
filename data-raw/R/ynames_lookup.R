@@ -304,12 +304,32 @@ for (i in 1:nrow(ynames_lookup)) {
   ynames_lookup[i, "tx"] <- text
 }
 
+ynames_lookup$inv_tx <- NA_character_
+for (i in 1:nrow(ynames_lookup)) {
+  if (ynames_lookup$tx[i] == "function(x) x") {
+    ynames_lookup$inv_tx[i] <- "function(x) x"
+  }
+  if (ynames_lookup$tx[i] == "function(x) x * 12") {
+    ynames_lookup$inv_tx[i] <- "function(x) x / 12"
+  }
+}
+
 ynames_lookup$ty <- NA_character_
 for (i in 1:nrow(ynames_lookup)) {
   text <- get_ty_calltext(ynames_lookup[i, "chartgrp"],
                           ynames_lookup[i, "chartcode"],
                           ynames_lookup[i, "yname"])
   ynames_lookup[i, "ty"] <- text
+}
+
+ynames_lookup$inv_ty <- NA_character_
+for (i in 1:nrow(ynames_lookup)) {
+  if (ynames_lookup$ty[i] == "function(y) y") {
+    ynames_lookup$inv_ty[i] <- "function(y) y"
+  }
+  if (ynames_lookup$ty[i] == "function(y) log10(y)") {
+    ynames_lookup$inv_ty[i] <- "function(y) 10^y"
+  }
 }
 
 # transformation sequence
