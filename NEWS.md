@@ -1,3 +1,7 @@
+# chartcatalog 1.18.1
+
+* Repair typo in who reference name
+
 # chartcatalog 1.18.0
 
 * Extends the lookup table with a new field `refpkg` that indicates the package where the reference with name `refcode` can be found
