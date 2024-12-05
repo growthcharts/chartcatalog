@@ -1,3 +1,7 @@
+# chartcatalog 1.18.0
+
+* Extends the lookup table with a new field `refpkg` that indicates the package where the reference with name `refcode` can be found
+
 # chartcatalog 1.17.1
 
 * Adds getters for inverse transformations of `x` and `y`

@@ -30,6 +30,8 @@ then calculate reference) or either \code{"rt"} (first calculate reference,
 then transform).}
 \item{refcode}{A string coding the reference name recognised by
 \code{centile::load_reference()}.}
+\item{refpkg}{A string coding the package in which refcode can be found by
+\code{centile::load_reference()}.}
 }
 }
 \usage{

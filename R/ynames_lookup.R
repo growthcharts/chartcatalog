@@ -28,5 +28,7 @@
 #' then transform).}
 #' \item{refcode}{A string coding the reference name recognised by
 #' \code{centile::load_reference()}.}
+#' \item{refpkg}{A string coding the package in which refcode can be found by
+#' \code{centile::load_reference()}.}
 #' }
 "ynames_lookup"

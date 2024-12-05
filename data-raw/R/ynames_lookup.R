@@ -364,6 +364,22 @@ from <- data.frame(
 )
 ynames_lookup$refcode <- dplyr::left_join(from, conversion, by = c("lib", "clopus"))$centile
 
+# repair faulty refcodes for WHO
+ynames_lookup[ynames_lookup$refcode == "who_2011_bmi_female_", "refcode"] <- "who_2006_bmi_female_"
+ynames_lookup[ynames_lookup$refcode == "who_2011_bmi_male_", "refcode"] <- "who_2006_bmi_male_"
+ynames_lookup[ynames_lookup$refcode == "who_2011_hdc_female_", "refcode"] <- "who_2007_hdc_female_"
+ynames_lookup[ynames_lookup$refcode == "who_2011_hdc_male_", "refcode"] <- "who_2007_hdc_male_"
+ynames_lookup[ynames_lookup$refcode == "who_2011_hgt_female_", "refcode"] <- "who_2006_hdc_female_"
+ynames_lookup[ynames_lookup$refcode == "who_2011_hgt_male_", "refcode"] <- "who_2006_hdc_male_"
+ynames_lookup[ynames_lookup$refcode == "who_2011_wfh_female_", "refcode"] <- "who_2006_wfh_female_"
+ynames_lookup[ynames_lookup$refcode == "who_2011_wfh_male_", "refcode"] <- "who_2006_wfh_male_"
+ynames_lookup[ynames_lookup$refcode == "who_2011_wgt_female_", "refcode"] <- "who_2006_wgt_female_"
+ynames_lookup[ynames_lookup$refcode == "who_2011_wgt_male_", "refcode"] <- "who_2006_wgt_male_"
+
+# add refpkg column
+ynames_lookup$refpkg <- NA_character_
+ynames_lookup[strtrim(ynames_lookup$refcode, 2) %in% c("nl", "ph"), "refpkg"] <- "nlreferences"
+ynames_lookup[strtrim(ynames_lookup$refcode, 3) == "who", "refpkg"] <- "centile"
 
 # save
 usethis::use_data(ynames_lookup, overwrite = TRUE)
