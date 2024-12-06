@@ -1,3 +1,7 @@
+# chartcatalog 1.18.2
+
+* Update the `ynames_lookup` table with corrected WHO references
+
 # chartcatalog 1.18.1
 
 * Repair typo in who reference name
